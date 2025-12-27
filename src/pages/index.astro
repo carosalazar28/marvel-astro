@@ -1,11 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import CountdownTimer from '../components/CountdownTimer';
+import SliderCountdown from '../components/SliderCountdown';
 ---
 
 <Layout>
-	<Welcome />
+	<SliderCountdown 
+		client:load 
+		slides={[
+			{ 
+				id: 1, 
+				title: "AVENGERS: DOOMSDAY", 
+				targetDate: "2026-12-18T00:00:00"
+			},
+			{ 
+				id: 2, 
+				title: "SPIDER-MAN: BRAND NEW DAY", 
+				targetDate: "2026-07-31T00:00:00"
+			},
+			{ 
+				id: 3, 
+				title: "THE FANTASTIC FOUR: FIRST STEPS", 
+				targetDate: "2026-11-01T00:00:00"
+			}
+		]}
+	/>
 </Layout>
