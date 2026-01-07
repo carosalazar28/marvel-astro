@@ -1,6 +1,5 @@
-/* Countdown Timer Styles */
+/* Countdown Base Styles */
 .countdown {
-	background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-mid) 50%, var(--primary-gradient-end) 100%);
 	border-radius: 1.5rem;
 	padding: 3rem;
 	box-shadow: 
@@ -39,11 +38,6 @@
 	margin: 0 0 0.5rem 0;
 	text-align: center;
 	line-height: 1.1;
-	background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	text-shadow: 0 0 30px rgba(var(--accent-color-rgb), 0.5);
 	/* Auto-adjust font size for long titles */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -51,37 +45,6 @@
 	hyphens: auto;
 	position: relative;
 	z-index: 1;
-}
-
-/* Countdown when in current slide */
-.countdown--current .countdown__title {
-	font-size: clamp(2rem, 5vw, 3.5rem);
-	text-shadow: 0 0 40px rgba(var(--accent-color-rgb), 0.7);
-}
-
-/* Countdown preview for non-current slides */
-.countdown__preview {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 100%;
-}
-
-.countdown__preview-title {
-	font-size: 1.25rem;
-	font-weight: 600;
-	font-family: var(--font-primary);
-	color: var(--text-primary);
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	opacity: 0.8;
-}
-
-@media (min-width: 768px) {
-	.countdown__title {
-		font-size: 3.5rem;
-	}
 }
 
 .countdown__subtitle {
@@ -97,7 +60,7 @@
 
 .countdown__grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	position: relative;
 	z-index: 1;
 }
@@ -127,21 +90,12 @@
 	font-size: 3rem;
 	font-weight: 700;
 	font-family: var(--font-mono);
-	background: linear-gradient(135deg, var(--value-gradient-start) 0%, var(--value-gradient-end) 100%);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	color: var(--text-primary);
 	margin-bottom: 0.75rem;
 	text-shadow: none;
 	letter-spacing: -0.05em;
 	position: relative;
 	z-index: 1;
-}
-
-@media (min-width: 768px) {
-	.countdown__value {
-		font-size: 3.5rem;
-	}
 }
 
 .countdown__label {
@@ -154,6 +108,36 @@
 	margin: 0;
 	position: relative;
 	z-index: 1;
+}
+
+/* Countdown preview for non-current slides */
+.countdown__preview {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+.countdown__preview-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	font-family: var(--font-primary);
+	color: var(--text-primary);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	opacity: 0.8;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+	.countdown__title {
+		font-size: 3.5rem;
+	}
+	
+	.countdown__value {
+		font-size: 3.5rem;
+	}
 }
 
 @media (max-width: 640px) {
@@ -172,5 +156,16 @@
 	
 	.countdown__value {
 		font-size: 2.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.countdown__grid {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+	
+	.countdown__item {
+		padding: 1rem 0;
 	}
 }

@@ -1,0 +1,109 @@
+/* Countdown Theme Colors */
+
+/* Theme-based backgrounds */
+.countdown--green {
+	background: linear-gradient(135deg, var(--theme-green-start) 0%, var(--theme-green-mid) 50%, var(--theme-green-end) 100%);
+}
+
+.countdown--green .countdown__title,
+.countdown--green .countdown__subtitle,
+.countdown--green .countdown__value,
+.countdown--green .countdown__label {
+	color: var(--theme-green-text);
+}
+
+.countdown--purple {
+	background: linear-gradient(135deg, var(--theme-purple-start) 0%, var(--theme-purple-mid) 50%, var(--theme-purple-end) 100%);
+}
+
+.countdown--purple .countdown__title,
+.countdown--purple .countdown__subtitle,
+.countdown--purple .countdown__value,
+.countdown--purple .countdown__label {
+	color: var(--theme-purple-text);
+}
+
+.countdown--blue {
+	background: linear-gradient(135deg, var(--theme-blue-start) 0%, var(--theme-blue-mid) 50%, var(--theme-blue-end) 100%);
+}
+
+.countdown--blue .countdown__title,
+.countdown--blue .countdown__subtitle,
+.countdown--blue .countdown__value,
+.countdown--blue .countdown__label {
+	color: var(--theme-blue-text);
+}
+
+.countdown--orange {
+	background: linear-gradient(135deg, var(--theme-orange-start) 0%, var(--theme-orange-mid) 50%, var(--theme-orange-end) 100%);
+}
+
+.countdown--orange .countdown__title,
+.countdown--orange .countdown__subtitle,
+.countdown--orange .countdown__value,
+.countdown--orange .countdown__label {
+	color: var(--theme-orange-text);
+}
+
+.countdown--red {
+	background: linear-gradient(135deg, var(--theme-red-start) 0%, var(--theme-red-mid) 50%, var(--theme-red-end) 100%);
+}
+
+.countdown--red .countdown__title,
+.countdown--red .countdown__subtitle,
+.countdown--red .countdown__value,
+.countdown--red .countdown__label {
+	color: var(--theme-red-text);
+}
+
+/* Theme-specific title colors override */
+.countdown--green .countdown__title {
+	color: var(--theme-green-text);
+	background: linear-gradient(135deg, var(--theme-green-text) 0%, rgba(255, 255, 255, 0.8) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.countdown--purple .countdown__title {
+	color: var(--theme-purple-text);
+	background: linear-gradient(135deg, var(--theme-purple-text) 0%, rgba(255, 255, 255, 0.8) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.countdown--blue .countdown__title {
+	color: var(--theme-blue-text);
+	background: linear-gradient(135deg, var(--theme-blue-text) 0%, rgba(255, 255, 255, 0.8) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.countdown--orange .countdown__title {
+	color: var(--theme-orange-text);
+	background: linear-gradient(135deg, var(--theme-orange-text) 0%, rgba(255, 255, 255, 0.8) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.countdown--red .countdown__title {
+	color: var(--theme-red-text);
+	background: linear-gradient(135deg, var(--theme-red-text) 0%, rgba(255, 255, 255, 0.8) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Countdown when in current slide */
+.countdown--current .countdown__title {
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	text-shadow: 0 0 40px rgba(var(--accent-color-rgb), 0.7);
+}

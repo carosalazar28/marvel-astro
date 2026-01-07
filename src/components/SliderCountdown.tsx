@@ -7,6 +7,7 @@ interface SliderProps {
     id: number;
     title: string;
     targetDate: string;
+    colorTheme?: 'green' | 'purple' | 'blue' | 'orange' | 'red';
   }>;
 }
 
@@ -51,6 +52,7 @@ export default function SliderCountdown({ slides }: SliderProps) {
             <CountdownTimer 
               title={slides[getPrevIndex()].title} 
               targetDate={slides[getPrevIndex()].targetDate} 
+              colorTheme={slides[getPrevIndex()].colorTheme || 'blue'}
               isCurrent={false}
             />
           </div>
@@ -62,6 +64,7 @@ export default function SliderCountdown({ slides }: SliderProps) {
             <CountdownTimer 
               title={slides[currentIndex].title} 
               targetDate={slides[currentIndex].targetDate} 
+              colorTheme={slides[currentIndex].colorTheme || 'blue'}
               isCurrent={true}
             />
           </div>
@@ -73,6 +76,7 @@ export default function SliderCountdown({ slides }: SliderProps) {
             <CountdownTimer 
               title={slides[getNextIndex()].title} 
               targetDate={slides[getNextIndex()].targetDate} 
+              colorTheme={slides[getNextIndex()].colorTheme || 'blue'}
               isCurrent={false}
             />
           </div>
