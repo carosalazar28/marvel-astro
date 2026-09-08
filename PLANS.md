@@ -8,7 +8,7 @@
 
 ## Hito 0 — Calidad habilitante
 
-Instalar y configurar Vitest, `@vitest/coverage-v8`, Testing Library, `@testing-library/user-event` y `jsdom`. Añadir scripts de prueba y cobertura que permitan verificar 100% de líneas, funciones y ramas del código modificado. La verificación de cobertura diferencial debe ejecutarse antes de agregar funcionalidades de v1.
+Configurar Vitest, `@vitest/coverage-v8`, Testing Library, `@testing-library/user-event`, `jsdom` y scripts npm de prueba/cobertura. El validador de descripciones de PR es la primera unidad cubierta al 100%; la misma exigencia aplica a todo código ejecutable futuro. La verificación de cobertura diferencial debe ejecutarse antes de agregar funcionalidades de v1.
 
 ## Hito 1 — Datos y calendario
 
