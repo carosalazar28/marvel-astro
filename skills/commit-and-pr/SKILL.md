@@ -38,6 +38,12 @@ Cuando el objetivo acordado esté implementado y haya pasado sus controles de ca
 
 Si no es posible abrirlo por una condición del harness —por ejemplo, cobertura incompleta, tamaño excedido o autenticación ausente— no declares el objetivo entregado. Divide, corrige o comunica el bloqueo concreto.
 
+## Cierre tras la fusión
+
+Cuando el PR esté fusionado, verifica su estado y el commit de merge en GitHub. Entrega un resumen final con el enlace del PR, la verificación ejecutada y cualquier seguimiento explícito.
+
+Después, cierra el contexto de la tarea. El siguiente objetivo se inicia en una tarea nueva para evitar que decisiones, supuestos o instrucciones temporales anteriores contaminen el trabajo. No elimines archivos, ramas ni cambios locales de otras personas como parte de ese cierre.
+
 ## Entrega autónoma a GitHub
 
 Usa GitHub CLI autenticado por HTTPS para las operaciones remotas. Antes de subir o crear un PR, ejecuta `gh auth status`; si no hay una cuenta activa, detén la entrega y pide a la persona usuaria completar una sola vez:

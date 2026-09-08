@@ -63,6 +63,7 @@ No crees una carpeta nueva sin una responsabilidad clara. Coloca el código seg�
 4. Completa la revisión de negocio y la revisión técnica antes de abrir el pull request; adjunta su evidencia en la plantilla del PR.
 5. Cuando se cumpla el objetivo acordado y pasen sus controles de calidad, crea el pull request: el PR es el entregable obligatorio del cambio. Un objetivo no se considera entregado solo por estar implementado o confirmado localmente.
 6. Actualiza la documentación afectada en el mismo cambio. Un fallo confirmado debe producir un aprendizaje reutilizable en el harness, una skill o la documentación.
+7. Cuando el PR se haya fusionado, verifica la fusión y cierra el contexto de la tarea con un resumen final y los enlaces relevantes. El siguiente objetivo debe iniciar en una tarea nueva, sin arrastrar supuestos, instrucciones temporales ni trabajo pendiente de la anterior. Esta limpieza nunca autoriza borrar cambios locales ajenos.
 
 ## Documentación que gobierna el producto
 
