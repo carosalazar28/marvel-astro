@@ -2,14 +2,17 @@
 
 ## Dirección visual
 
-El producto es un calendario minimalista: claro, sobrio y orientado a decidir qué ver esta semana. La información domina sobre la decoración. Se conserva la base visual existente de tema oscuro y tipografías Inter, Space Grotesk y JetBrains Mono, pero las decisiones futuras deben priorizar legibilidad y planificación.
+El producto se identifica como **Plan de Cine MCU**. Es un plan personal, oscuro y minimalista para preparar un estreno: la portada debe explicar primero la meta de estreno, después la ruta semanal y finalmente el progreso. La información domina sobre la decoración.
+
+La identidad visual usa `#0D1020` como fondo, `#11152A` y `#1A1F3A` como superficies, `#717CFF` como acento principal, `#EEF0F7` para texto principal y `#96A0C5` para texto secundario. Inter se usa para lectura, Space Grotesk para títulos y JetBrains Mono para etiquetas o cifras temporales.
 
 ## Jerarquía
 
-1. Próximo contenido y fecha de estreno.
-2. Semana actual y contenido programado.
-3. Estado de visto y porcentaje de avance.
-4. Metadatos secundarios: tipo, fase, año y rango de fechas.
+1. Identidad de Plan de Cine MCU y la meta de estreno elegida.
+2. Cuenta regresiva y próximos estrenos.
+3. Semana actual y contenido programado.
+4. Estado de visto y porcentaje de avance.
+5. Metadatos secundarios: tipo, fase, año y rango de fechas.
 
 Cada tarjeta debe comunicar su estado sin depender únicamente del color. Los acentos pueden diferenciar estrenos, tipos o fases, pero siempre con texto, icono o etiqueta equivalente.
 

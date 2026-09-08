@@ -1,46 +1,26 @@
-# Astro Starter Kit: Basics
+# Plan de Cine MCU
 
-```sh
-npm create astro@latest -- --template basics
-```
+Una aplicación personal para preparar un estreno del MCU. Reúne la cuenta regresiva de próximos estrenos con una ruta semanal de películas y series y con el progreso guardado en el navegador.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+├── components/  Islas React para interacción
+├── data/        Catálogo y estrenos versionados
+├── layouts/     Estructura Astro compartida
+├── pages/       Rutas Astro
+└── styles/      Estilos de la interfaz
+docs/use-cases/  Comportamiento observable del producto
+skills/          Reglas operativas del harness
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Comandos
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Comando | Acción |
+| --- | --- |
+| `npm install` | Instala las dependencias. |
+| `npm run dev` | Inicia el entorno local en `localhost:4321`. |
+| `npm run build` | Genera la versión de producción en `./dist/`. |
+| `npm run test` | Ejecuta las pruebas unitarias. |
+| `npm run test:coverage` | Ejecuta las pruebas con cobertura. |

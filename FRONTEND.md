@@ -2,7 +2,7 @@
 
 ## Página principal
 
-La ruta principal reúne dos áreas: próximos estrenos y calendario de visionado. El contenido estático se compone en Astro; las áreas que cambian por interacción se hidratan como islas React.
+La ruta principal se presenta como **Plan de Cine MCU**: un encabezado estático explica que une la cuenta regresiva, el calendario semanal y el progreso personal. Reúne las áreas de próximos estrenos y calendario de visionado. El contenido estático se compone en Astro; las áreas que cambian por interacción se hidratan como islas React.
 
 ## Comportamientos requeridos de v1
 

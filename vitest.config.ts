@@ -6,7 +6,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json-summary'],
-      include: ['scripts/**/*.ts'],
+      include: ['scripts/**/*.ts', 'src/components/SliderCountdown.tsx'],
       thresholds: {
         branches: 100,
         functions: 100,
