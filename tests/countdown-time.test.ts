@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateTimeLeft, INITIAL_TIME_LEFT } from '../src/components/countdown-time';
+import { calculateTimeLeft, INITIAL_TIME_LEFT } from '../src/utils/countdown-time';
 
 describe('calculateTimeLeft', () => {
   const now = new Date('2026-01-01T00:00:00.000Z').getTime();

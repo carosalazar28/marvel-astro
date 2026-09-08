@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { calculateTimeLeft, INITIAL_TIME_LEFT } from './countdown-time';
+import { calculateTimeLeft, INITIAL_TIME_LEFT } from '../utils/countdown-time';
 import '../styles/countdown.css';
 
 interface CountdownTimerProps {
