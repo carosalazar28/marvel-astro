@@ -10,8 +10,9 @@ Usa esta skill para todo cambio que vaya a integrarse.
 ## Antes de modificar
 
 - Trabaja en una rama dedicada con prefijo `codex/`, salvo que la persona usuaria indique otra.
-- Divide el alcance para que cada PR tenga una intención verificable y pueda revisarse de forma independiente.
-- Si el trabajo proyectado supera 1.000 líneas de altas más bajas, diseña PRs stackeados. Cada rama posterior parte de la rama del PR anterior y el orden de merge se declara en todos los PRs de la pila.
+- Todo PR usa `main` como rama base. Divide el alcance para que cada PR tenga una intención verificable, se pueda revisar de forma independiente y se integre directamente en `main`.
+- Si el trabajo proyectado supera 1.000 líneas de altas más bajas, divídelo en PRs independientes contra `main`; no uses una pila solo para fraccionar tamaño.
+- La única excepción a la base `main` es corregir o completar una función que vive en un PR **abierto**. En ese caso, la rama puede partir de aquel PR y el nuevo PR debe declarar qué corrige, la rama base y el orden de merge. Si el PR base ya fue fusionado o cerrado, actualiza la rama desde `main` y abre el PR contra `main`.
 
 ## Commits
 
@@ -28,7 +29,7 @@ Tipos habituales: `feat`, `fix`, `docs`, `test`, `refactor`, `build` y `chore`. 
 1. Calcula el tamaño con `git diff --shortstat <base>...HEAD`; suma inserciones y eliminaciones. Incluye código, documentación, pruebas y archivos de bloqueo.
 2. Completa las revisiones requeridas por las skills de negocio y técnica.
 3. La descripción debe cumplir exactamente la estructura definida en `.github/pull_request_template.md`: `Description`, `Changes`, `Testing` y `Additional Information`. Sustituye todos los textos de ejemplo por información concreta del cambio; no añadas secciones alternativas ni dejes placeholders.
-4. Si el PR es stackeado, declara rama base, orden de merge y qué alcance independiente entrega este nivel.
+4. Si el PR usa excepcionalmente la rama de otro PR abierto como base, declara la rama base, el PR relacionado, el motivo funcional y el orden de merge.
 
 No abras un PR que supere 1.000 líneas ni uno con revisiones incompletas. Divide el trabajo antes de solicitar la revisión.
 
@@ -52,4 +53,4 @@ gh auth login --hostname github.com --git-protocol https --web
 
 No expongas ni copies tokens. Configura el remoto del repositorio como `https://github.com/<owner>/<repo>.git`, de modo que Git use la credencial segura de GitHub CLI en vez de depender de un socket SSH de una terminal interactiva.
 
-Después de validar tamaño, revisiones, build y pruebas, sube la rama y crea el PR con `gh pr create`, indicando base, rama, título convencional y un cuerpo que siga exactamente `.github/pull_request_template.md`. Para una pila, crea primero el PR base; cada PR posterior usa la rama del nivel anterior como base.
+Después de validar tamaño, revisiones, build y pruebas, sube la rama y crea el PR con `gh pr create`, usando `main` como base, título convencional y un cuerpo que siga exactamente `.github/pull_request_template.md`. Usa otra base únicamente para la excepción documentada de un PR abierto.
