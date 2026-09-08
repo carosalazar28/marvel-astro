@@ -61,7 +61,8 @@ No crees una carpeta nueva sin una responsabilidad clara. Coloca el código seg�
 2. Todo cambio integrado se realiza en una rama, con Conventional Commit y pull request. El diff total del PR (altas + bajas, incluidas pruebas y documentación) no puede superar 1.000 líneas.
 3. Todo código modificado requiere pruebas unitarias con 100% de cobertura de líneas, funciones y ramas para ese código, incluidos casos límite y de error.
 4. Completa la revisión de negocio y la revisión técnica antes de abrir el pull request; adjunta su evidencia en la plantilla del PR.
-5. Actualiza la documentación afectada en el mismo cambio. Un fallo confirmado debe producir un aprendizaje reutilizable en el harness, una skill o la documentación.
+5. Cuando se cumpla el objetivo acordado y pasen sus controles de calidad, crea el pull request: el PR es el entregable obligatorio del cambio. Un objetivo no se considera entregado solo por estar implementado o confirmado localmente.
+6. Actualiza la documentación afectada en el mismo cambio. Un fallo confirmado debe producir un aprendizaje reutilizable en el harness, una skill o la documentación.
 
 ## Documentación que gobierna el producto
 

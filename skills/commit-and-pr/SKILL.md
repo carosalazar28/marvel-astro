@@ -32,6 +32,12 @@ Tipos habituales: `feat`, `fix`, `docs`, `test`, `refactor`, `build` y `chore`. 
 
 No abras un PR que supere 1.000 líneas ni uno con revisiones incompletas. Divide el trabajo antes de solicitar la revisión.
 
+## Entregable obligatorio
+
+Cuando el objetivo acordado esté implementado y haya pasado sus controles de calidad, crea el pull request correspondiente. El commit local o la implementación terminada no constituyen una entrega: el PR abierto es el entregable requerido.
+
+Si no es posible abrirlo por una condición del harness —por ejemplo, cobertura incompleta, tamaño excedido o autenticación ausente— no declares el objetivo entregado. Divide, corrige o comunica el bloqueo concreto.
+
 ## Entrega autónoma a GitHub
 
 Usa GitHub CLI autenticado por HTTPS para las operaciones remotas. Antes de subir o crear un PR, ejecuta `gh auth status`; si no hay una cuenta activa, detén la entrega y pide a la persona usuaria completar una sola vez:
