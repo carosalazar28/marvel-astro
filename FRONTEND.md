@@ -6,11 +6,12 @@ La ruta principal se presenta como **Plan de Cine MCU**: un encabezado estático
 
 ## Comportamientos requeridos de v1
 
-- El carrusel permite consultar cada estreno próximo y muestra una cuenta regresiva hasta su fecha.
+- El carrusel permite consultar cada estreno próximo y muestra una cuenta regresiva hasta su fecha. En móvil muestra una sola tarjeta activa y coloca la navegación anterior/siguiente debajo de ella; en escritorio conserva las vistas previas laterales sin restar jerarquía al estreno activo.
 - El calendario mezcla películas y series en una única secuencia semanal.
 - La persona usuaria puede marcar un ítem como visto y ver el total, completados y porcentaje de avance.
 - Puede filtrar por estado, tipo y fase, y ordenar por semana, título o fase.
 - El progreso persiste en el dispositivo y una entrada local inválida no rompe la interfaz.
+- La cuenta regresiva se renderiza con ceros durante SSR e hidratación; al montar en el navegador calcula de inmediato el tiempo real y después se actualiza cada segundo. Así el reloj del servidor y el cliente no producen HTML distinto durante la hidratación.
 
 ## Fronteras de componentes
 

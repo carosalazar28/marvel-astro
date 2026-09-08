@@ -17,6 +17,15 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 - **JSON en `src/data/`** es la fuente de verdad de catálogo y estrenos. Se edita manualmente y se versiona junto al código.
 - **`localStorage`** guarda solo los identificadores de contenido vistos. No es una fuente de catálogo ni un mecanismo de sincronización.
 
+## Organización de código
+
+`src/utils/` contiene lógica pura y reutilizable que no pertenece a un componente, hook, ruta ni integración de navegador. Sus módulos no importan React, no leen ni escriben `localStorage`, no crean temporizadores ni acceden al DOM; reciben datos explícitos y devuelven resultados deterministas y testeables.
+
+- Agrupa utilidades por dominio del producto, con nombres específicos como `countdown-time.ts`; no crees archivos genéricos `helpers.ts`, `common.ts` o `utils.ts`.
+- Cuando un dominio crezca y necesite varios módulos relacionados, crea una carpeta explícita —por ejemplo, `src/utils/progress/`— en vez de mezclarlo con dominios distintos.
+- Los componentes y hooks conservan los efectos, estado y eventos; importan funciones desde `utils/`, pero una utilidad nunca depende de una capa de interfaz.
+- Cada utilidad exportada declara sus tipos y mantiene pruebas unitarias que cubren sus decisiones. No se usa un índice global que oculte la procedencia de los módulos.
+
 ## Contrato de datos objetivo
 
 Cada ítem del calendario debe incluir `id`, `title`, `type` (`movie` o `series`), `week`, `dateRange`, `startDate`, `endDate`, `year` y `phase`. `id` es inmutable y es la única clave permitida para el progreso local.
