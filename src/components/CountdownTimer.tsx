@@ -1,12 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { calculateTimeLeft, INITIAL_TIME_LEFT } from '../utils/countdown-time';
 import '../styles/countdown.css';
-
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
 
 interface CountdownTimerProps {
   title: string;
@@ -17,32 +11,26 @@ interface CountdownTimerProps {
 
 export default function CountdownTimer({ title, targetDate, subtitle = "Tiempo para el estreno", isCurrent = false }: CountdownTimerProps) {
   const targetDateTime = new Date(targetDate).getTime();
-
-  const calculateTimeLeft = (): TimeLeft => {
-    const now = new Date().getTime();
-    const difference = targetDateTime - now;
-
-    if (difference <= 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-
-    return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((difference % (1000 * 60)) / 1000),
-    };
-  };
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  // A stable zero state is rendered on server and client before hydration. Reading the
+  // clock only in the effect prevents a one-second SSR/client mismatch.
+  const [timeLeft, setTimeLeft] = useState(INITIAL_TIME_LEFT);
 
   useEffect(() => {
+    if (!isCurrent) {
+      return undefined;
+    }
+
+    const updateTimeLeft = () => {
+      setTimeLeft(calculateTimeLeft(targetDateTime, Date.now()));
+    };
+
+    updateTimeLeft();
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      updateTimeLeft();
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isCurrent, targetDateTime]);
 
   return (
     <div className={`countdown ${isCurrent ? 'countdown--current' : ''}`}>

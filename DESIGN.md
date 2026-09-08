@@ -16,6 +16,8 @@ Cada tarjeta debe comunicar su estado sin depender únicamente del color. Los ac
 ## Responsive y accesibilidad básica
 
 - La experiencia debe funcionar desde 320 px hasta escritorio sin ocultar contenido esencial.
+- En pantallas de hasta 768 px, el carrusel presenta únicamente el estreno activo. Los botones anterior y siguiente ocupan una fila propia debajo de la tarjeta para evitar recortes y solapamiento con la cuenta regresiva; cada control conserva un área táctil mínima de 44 px.
+- Desde escritorio, el estreno activo conserva la prioridad visual y puede estar acompañado por vistas previas laterales de los estrenos adyacentes.
 - Usa HTML semántico, encabezados ordenados y botones reales para acciones.
 - Todo control interactivo necesita nombre accesible; los iconos no sustituyen etiquetas.
 - La navegación con teclado debe alcanzar carrusel, filtros, orden y marcado de visto; el foco ha de ser visible.
