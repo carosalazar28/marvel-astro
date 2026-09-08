@@ -6,7 +6,7 @@ La ruta principal reúne dos áreas: próximos estrenos y calendario de visionad
 
 ## Comportamientos requeridos de v1
 
-- El carrusel permite consultar cada estreno próximo y muestra una cuenta regresiva hasta su fecha.
+- El carrusel permite consultar cada estreno próximo y muestra una cuenta regresiva hasta su fecha. En móvil muestra una sola tarjeta activa y coloca la navegación anterior/siguiente debajo de ella; en escritorio conserva las vistas previas laterales sin restar jerarquía al estreno activo.
 - El calendario mezcla películas y series en una única secuencia semanal.
 - La persona usuaria puede marcar un ítem como visto y ver el total, completados y porcentaje de avance.
 - Puede filtrar por estado, tipo y fase, y ordenar por semana, título o fase.
