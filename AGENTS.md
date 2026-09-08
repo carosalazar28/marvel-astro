@@ -15,6 +15,7 @@ Este repositorio desarrolla una aplicación personal para completar un calendari
 - Astro 5 proporciona la página y el layout; React 19 se usa únicamente en islas interactivas.
 - El contenido versionado vive en `src/data/`; el progreso de la persona usuaria vive solo en `localStorage`.
 - Usa `npm run dev` para desarrollo y `npm run build` antes de entregar un cambio. Cuando exista la suite, ejecuta también el comando de pruebas y cobertura definido en `package.json`.
+- Usa GitHub CLI (`gh`) autenticado por HTTPS para consultar, subir ramas y crear pull requests. Verifica `gh auth status` antes de una entrega remota; nunca dependas del socket SSH de una sesión interactiva.
 - No introduzcas backend, cuentas, APIs externas ni servicios de pago sin actualizar primero la documentación de producto y arquitectura.
 
 ## Coding standards

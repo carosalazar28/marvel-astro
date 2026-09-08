@@ -31,3 +31,15 @@ Tipos habituales: `feat`, `fix`, `docs`, `test`, `refactor`, `build` y `chore`. 
 4. Si el PR es stackeado, declara rama base, orden de merge y qué alcance independiente entrega este nivel.
 
 No abras un PR que supere 1.000 líneas ni uno con revisiones incompletas. Divide el trabajo antes de solicitar la revisión.
+
+## Entrega autónoma a GitHub
+
+Usa GitHub CLI autenticado por HTTPS para las operaciones remotas. Antes de subir o crear un PR, ejecuta `gh auth status`; si no hay una cuenta activa, detén la entrega y pide a la persona usuaria completar una sola vez:
+
+```text
+gh auth login --hostname github.com --git-protocol https --web
+```
+
+No expongas ni copies tokens. Configura el remoto del repositorio como `https://github.com/<owner>/<repo>.git`, de modo que Git use la credencial segura de GitHub CLI en vez de depender de un socket SSH de una terminal interactiva.
+
+Después de validar tamaño, revisiones, build y pruebas, sube la rama y crea el PR con `gh pr create`, indicando base, rama, título convencional y el cuerpo completo de `.github/pull_request_template.md`. Para una pila, crea primero el PR base; cada PR posterior usa la rama del nivel anterior como base.
