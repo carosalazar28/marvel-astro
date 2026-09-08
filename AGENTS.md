@@ -38,6 +38,8 @@ Este repositorio desarrolla una aplicación personal para completar un calendari
 │   ├── data/         JSON versionado de catálogo y estrenos.
 │   ├── styles/       Estilos globales y estilos de componentes.
 │   └── assets/       Recursos procesados por Astro.
+├── scripts/          Automatizaciones TypeScript ejecutadas desde npm.
+├── tests/            Pruebas unitarias y de integración.
 ├── public/           Recursos estáticos publicados sin procesamiento.
 ├── docs/use-cases/   Flujos observables, precondiciones y casos límite del producto.
 ├── skills/           Instrucciones operativas del harness; una carpeta por skill con `SKILL.md`.
@@ -58,7 +60,7 @@ No crees una carpeta nueva sin una responsabilidad clara. Coloca el código seg�
 ## Reglas no negociables
 
 1. Lee `skills/commit-and-pr/SKILL.md`, `skills/testing-and-coverage/SKILL.md`, `skills/business-review/SKILL.md`, `skills/technical-review/SKILL.md` y `skills/documentation-and-learning/SKILL.md` para cualquier cambio de producto o código.
-2. Todo cambio integrado se realiza en una rama, con Conventional Commit y pull request. El diff total del PR (altas + bajas, incluidas pruebas y documentación) no puede superar 1.000 líneas.
+2. Todo cambio integrado se realiza en una rama, con Conventional Commit y pull request. El diff total del PR (altas + bajas, incluidas pruebas y documentación) no puede superar 1.000 líneas. Un lockfile de gestor de paquetes generado, atómico y necesario puede excluirse de ese conteo solo si el PR declara la excepción y el resto del diff respeta el límite.
 3. Todo código modificado requiere pruebas unitarias con 100% de cobertura de líneas, funciones y ramas para ese código, incluidos casos límite y de error.
 4. Completa la revisión de negocio y la revisión técnica antes de abrir el pull request; adjunta su evidencia en la plantilla del PR.
 5. Cuando se cumpla el objetivo acordado y pasen sus controles de calidad, crea el pull request: el PR es el entregable obligatorio del cambio. Un objetivo no se considera entregado solo por estar implementado o confirmado localmente.

@@ -32,6 +32,10 @@ Tipos habituales: `feat`, `fix`, `docs`, `test`, `refactor`, `build` y `chore`. 
 
 No abras un PR que supere 1.000 líneas ni uno con revisiones incompletas. Divide el trabajo antes de solicitar la revisión.
 
+### Excepción para lockfiles atómicos
+
+Un lockfile generado por el gestor de paquetes puede quedar fuera del límite solamente si no puede dividirse sin invalidarlo, es necesario para una dependencia del cambio y el resto de las altas y bajas no supera 1.000 líneas. Declara en `Additional Information` el tamaño total, el tamaño sin lockfile y la razón de la excepción. La excepción no aplica a código, pruebas, documentación ni a actualizaciones de lockfile no relacionadas.
+
 ## Entregable obligatorio
 
 Cuando el objetivo acordado esté implementado y haya pasado sus controles de calidad, crea el pull request correspondiente. El commit local o la implementación terminada no constituyen una entrega: el PR abierto es el entregable requerido.

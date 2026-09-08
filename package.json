@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "validate:pr-description": "tsx -e \"import { readFileSync } from 'node:fs'; import { validatePrDescription } from './scripts/validate-pr-description.ts'; const result = validatePrDescription(readFileSync(0, 'utf8')); if (!result.valid) { console.error(result.errors.join('\\n')); process.exitCode = 1; } else { console.log('PR description is valid.'); }\""
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -15,5 +18,14 @@
     "astro": "^5.16.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.5.0",
+    "@vitest/coverage-v8": "^5.0.0",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.23.13",
+    "vitest": "^5.0.0"
   }
 }
