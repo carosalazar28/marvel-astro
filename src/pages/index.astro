@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import CountdownTimer from '../components/CountdownTimer';
 import SliderCountdown from '../components/SliderCountdown';
+import Movies from '../components/Movies';
+import marvelData from '../data/marvel-plan.json';
 ---
 
 <Layout>
@@ -28,4 +30,6 @@ import SliderCountdown from '../components/SliderCountdown';
 			}
 		]}
 	/>
+	
+	<!-- <Movies client:load movies={marvelData.plan.movies} /> -->
 </Layout>
