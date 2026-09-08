@@ -11,6 +11,7 @@ La ruta principal reúne dos áreas: próximos estrenos y calendario de visionad
 - La persona usuaria puede marcar un ítem como visto y ver el total, completados y porcentaje de avance.
 - Puede filtrar por estado, tipo y fase, y ordenar por semana, título o fase.
 - El progreso persiste en el dispositivo y una entrada local inválida no rompe la interfaz.
+- La cuenta regresiva se renderiza con ceros durante SSR e hidratación; al montar en el navegador calcula de inmediato el tiempo real y después se actualiza cada segundo. Así el reloj del servidor y el cliente no producen HTML distinto durante la hidratación.
 
 ## Fronteras de componentes
 

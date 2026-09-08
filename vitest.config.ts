@@ -3,10 +3,15 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     environment: 'node',
+    environmentMatchGlobs: [['tests/**/*.test.tsx', 'jsdom']],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json-summary'],
-      include: ['scripts/**/*.ts'],
+      include: [
+        'scripts/**/*.ts',
+        'src/components/countdown-time.ts',
+        'src/components/CountdownTimer.tsx',
+      ],
       thresholds: {
         branches: 100,
         functions: 100,
