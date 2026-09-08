@@ -9,6 +9,7 @@ export default defineConfig({
       reporter: ['text', 'json-summary'],
       include: [
         'scripts/**/*.ts',
+        'src/components/SliderCountdown.tsx',
         'src/utils/countdown-time.ts',
         'src/components/CountdownTimer.tsx',
       ],

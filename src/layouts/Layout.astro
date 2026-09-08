@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Plan de Cine MCU | Próximos estrenos</title>
+		<meta name="description" content="Organiza tu ruta semanal de películas y series del MCU antes del próximo estreno." />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,21 +18,21 @@
 
 <style>
 	:root {
-		--primary-gradient-start: #1e1b4b;
-		--primary-gradient-mid: #312e81;
-		--primary-gradient-end: #1e1b4b;
-		--accent-color: #8b5cf6;
-		--accent-color-rgb: 139, 92, 246;
-		--text-primary: #ffffff;
-		--text-secondary: rgba(196, 181, 253, 0.8);
-		--text-muted: rgba(196, 181, 253, 0.9);
-		--title-gradient-start: #60a5fa;
-		--title-gradient-mid: #a78bfa;
-		--title-gradient-end: #f472b6;
+		--primary-gradient-start: #11152a;
+		--primary-gradient-mid: #1a1f3a;
+		--primary-gradient-end: #11152a;
+		--accent-color: #717cff;
+		--accent-color-rgb: 113, 124, 255;
+		--text-primary: #eef0f7;
+		--text-secondary: #b8bfde;
+		--text-muted: #96a0c5;
+		--title-gradient-start: #eef0f7;
+		--title-gradient-mid: #c7bdff;
+		--title-gradient-end: #8991ff;
 		--value-gradient-start: #ffffff;
 		--value-gradient-end: #e0e7ff;
-		--item-bg-start: rgba(30, 27, 75, 0.8);
-		--item-bg-end: rgba(49, 46, 129, 0.8);
+		--item-bg-start: rgba(17, 21, 42, 0.92);
+		--item-bg-end: rgba(26, 31, 58, 0.92);
 		
 		/* Font Variables */
 		--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -44,13 +45,10 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-		color: #ffffff;
+		background: #0d1020;
+		color: var(--text-primary);
 		font-family: var(--font-primary);
 		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
 	* {
@@ -58,6 +56,6 @@
 	}
 
 	body {
-		padding: 2rem;
+		padding: 0;
 	}
 </style>

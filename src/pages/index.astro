@@ -1,28 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CountdownTimer from '../components/CountdownTimer';
 import SliderCountdown from '../components/SliderCountdown';
 ---
 
 <Layout>
-	<SliderCountdown 
-		client:load 
-		slides={[
-			{ 
-				id: 1, 
-				title: "AVENGERS: DOOMSDAY", 
-				targetDate: "2026-12-18T00:00:00"
-			},
-			{ 
-				id: 2, 
-				title: "SPIDER-MAN: BRAND NEW DAY", 
-				targetDate: "2026-07-31T00:00:00"
-			},
-			{ 
-				id: 3, 
-				title: "THE FANTASTIC FOUR: FIRST STEPS", 
-				targetDate: "2026-11-01T00:00:00"
-			}
-		]}
-	/>
+	<main>
+		<header class="product-introduction">
+			<p class="product-introduction__eyebrow">Plan de Cine MCU</p>
+			<h1>Tu ruta hacia el próximo estreno</h1>
+			<p class="product-introduction__summary">Cuenta regresiva, calendario semanal y progreso personal para llegar preparada a cada estreno.</p>
+		</header>
+
+		<section class="premieres" aria-labelledby="upcoming-premieres-title">
+			<div class="premieres__heading">
+				<p class="premieres__eyebrow">Próximos estrenos</p>
+				<h2 id="upcoming-premieres-title">Elige tu próxima meta</h2>
+				<p>Consulta cuánto falta para el estreno que quieres preparar.</p>
+			</div>
+
+			<SliderCountdown
+				client:load
+				slides={[
+					{ id: 1, title: "Avengers: Doomsday", targetDate: "2026-12-18T00:00:00" },
+					{ id: 2, title: "Spider-Man: Brand New Day", targetDate: "2026-07-31T00:00:00" },
+					{ id: 3, title: "The Fantastic Four: First Steps", targetDate: "2026-11-01T00:00:00" }
+				]}
+			/>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	main { width: min(100%, 1280px); margin: 0 auto; padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 3rem) 4rem; }
+	.product-introduction { max-width: 48rem; margin: 0 auto clamp(2.5rem, 6vw, 4.5rem); text-align: center; }
+	.product-introduction__eyebrow, .premieres__eyebrow { margin: 0 0 0.75rem; color: var(--accent-color); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+	h1, h2 { font-family: var(--font-display); color: var(--text-primary); }
+	h1 { margin: 0; font-size: clamp(2.25rem, 6vw, 4.5rem); letter-spacing: -0.04em; line-height: 1; text-shadow: 0 0 2.5rem rgba(var(--accent-color-rgb), 0.28); }
+	.product-introduction__summary { max-width: 40rem; margin: 1.25rem auto 0; color: var(--text-secondary); font-size: clamp(1rem, 2vw, 1.125rem); line-height: 1.6; }
+	.premieres__heading { max-width: 40rem; margin: 0 auto; text-align: center; }
+	.premieres__heading h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.025em; }
+	.premieres__heading p:last-child { margin: 0.75rem 0 0; color: var(--text-muted); line-height: 1.5; }
+</style>

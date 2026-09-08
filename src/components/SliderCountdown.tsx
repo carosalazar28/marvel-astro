@@ -30,7 +30,6 @@ export default function SliderCountdown({ slides }: SliderProps) {
   };
 
   const goToSlide = (index: number) => {
-    console.log('Go to slide:', index);
     setCurrentIndex(index);
   };
 
@@ -82,17 +81,17 @@ export default function SliderCountdown({ slides }: SliderProps) {
         <button 
           className="slider__button slider__button--prev"
           onClick={handlePrev}
-          aria-label="Previous slide"
+          aria-label="Estreno anterior"
         >
-          PREV
+          ANTERIOR
         </button>
 
         <button 
           className="slider__button slider__button--next"
           onClick={handleNext}
-          aria-label="Next slide"
+          aria-label="Siguiente estreno"
         >
-          NEXT
+          SIGUIENTE
         </button>
       </div>
 
@@ -105,7 +104,7 @@ export default function SliderCountdown({ slides }: SliderProps) {
               index === currentIndex ? 'slider__dot--active' : ''
             }`}
             onClick={() => goToSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Ir al estreno ${index + 1}`}
           />
         ))}
       </div>
