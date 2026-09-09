@@ -3,8 +3,8 @@
 ## Estado actual
 
 - Implementado: layout Astro, cuenta regresiva del estreno objetivo y ruta de preparación versionada, validada y ordenada.
-- Implementado: dominio reutilizable para transicionar `Sin ver → Viendo → Vista`, persistencia segura por `id` estable y reinicio local; todavía no se conecta a la lista de películas.
-- Pendiente: conectar los estados de progreso a la ruta, porcentaje de preparación, calendario mensual, filtros y orden.
+- Implementado: tracker de ruta con transición `Sin ver → Viendo → Vista`, persistencia segura por `id` estable, reinicio local, resumen de preparación y filtros u orden sin mutar el catálogo.
+- Pendiente: calendario mensual y pulido responsive específico de la interfaz integrada.
 
 ## Hito 0 — Calidad habilitante
 
@@ -12,11 +12,11 @@ Completado: Vitest, `@vitest/coverage-v8`, Testing Library, `@testing-library/us
 
 ## Hito 1 — Datos y calendario
 
-Completar el esquema JSON unificado con `id` estable, películas y series. La ruta inicial de preparación ya se muestra desde JSON; queda el calendario mensual y sus filtros.
+Completar el esquema JSON unificado con `id` estable, películas y series. La ruta inicial ya se muestra desde JSON y admite filtros; queda el calendario mensual.
 
 ## Hito 2 — Progreso personal
 
-Persistir estados por `id`, tolerar datos locales inválidos, calcular estadísticas y permitir filtros por estado, tipo y fase, más orden. La frontera de transición y persistencia está lista; resta conectarla al catálogo y a la interfaz.
+Completado para la ruta de preparación: estados por `id`, tolerancia a datos locales inválidos, resumen, filtros por estado o tipo y orden. Futuros campos editoriales como fase requerirán ampliar el contrato JSON antes de filtrar por ellos.
 
 ## Hito 3 — Pulido de experiencia
 

@@ -4,7 +4,7 @@
 
 **Precondición:** la ruta JSON contiene ítems válidos con identificador estable, tipo, fecha programada, estado inicial y razón de relevancia.
 
-**Flujo principal:** abre la página, consulta la ruta cronológica y reconoce el contenido programado, su tipo, fecha, estado inicial **Sin ver** y por qué es relevante antes del estreno.
+**Flujo principal:** abre la página, consulta la ruta cronológica y reconoce el contenido programado, su tipo, fecha, estado local (**Sin ver**, **Viendo** o **Vista**) y por qué es relevante antes del estreno. Puede filtrar por estado o tipo y ordenar por fecha o título sin alterar el plan ni el resumen global.
 
 **Resultado:** puede decidir qué contenido le corresponde ver sin calcular fechas ni mantener una lista externa. Si la fecha pasó, reconoce la señal textual **Atrasada**.
 
