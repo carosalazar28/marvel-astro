@@ -15,6 +15,7 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 - **Astro** compone la ruta y el layout, y entrega contenido estático.
 - **React** maneja el carrusel de estrenos, el calendario, filtros, orden y marcado de contenido visto.
 - **JSON en `src/data/`** es la fuente de verdad de catálogo, ruta de preparación y estrenos. Se edita manualmente y se versiona junto al código.
+- **Recursos de `src/assets/`** contienen las imágenes locales procesadas por Astro. El hero del estreno usa un recurso original versionado; no solicita imágenes ni metadatos a servicios externos durante la ejecución.
 - **`localStorage`** guarda un mapa versionado de estados de visionado por `id` estable (`watching` o `watched`). La ausencia de una entrada significa `unseen`. No es una fuente de catálogo ni un mecanismo de sincronización.
 
 ## Organización de código

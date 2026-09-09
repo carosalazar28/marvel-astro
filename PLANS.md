@@ -6,7 +6,7 @@
 - Implementado: tracker de ruta con transición `Sin ver → Viendo → Vista`, persistencia segura por `id` estable, reinicio local, resumen de preparación y filtros u orden sin mutar el catálogo.
 - Implementado: calendario mensual navegable con detalle por día y próximas visualizaciones derivadas de la misma ruta y progreso local.
 - Implementado: composición responsive del tracker, con pestañas adhesivas en móvil y dos columnas en escritorio.
-- En auditoría: comparación de interfaz y flujos con el diseño de referencia en el issue #32. Los informes versionados y el backlog técnico viven en `docs/audits/`; las correcciones se dividirán en issues y PRs independientes.
+- En remediación: la auditoría #32 dejó cuatro unidades priorizadas en `docs/audits/technical-audit.md`. TA-001 está entregada; TA-002 (hero) está en curso y TA-003/TA-004 permanecen en issues independientes.
 
 ## Hito 0 — Calidad habilitante
 
