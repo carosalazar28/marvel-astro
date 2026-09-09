@@ -37,6 +37,11 @@ describe('PreparationTracker', () => {
     const user = userEvent.setup();
     render(<PreparationTracker items={items} issues={[]} />);
 
+    expect(screen.getByRole('button', { name: 'Películas' }).getAttribute('aria-pressed')).toBe('true');
+    await user.click(screen.getByRole('button', { name: 'Calendario' }));
+    expect(screen.getByRole('button', { name: 'Calendario' }).getAttribute('aria-pressed')).toBe('true');
+    await user.click(screen.getByRole('button', { name: 'Películas' }));
+
     await waitFor(() => expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Viendo' }).disabled).toBe(false));
 
     await user.click(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Viendo' }));
