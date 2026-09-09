@@ -31,3 +31,4 @@ El calendario mensual usa una cuadrícula de lunes a domingo, botones reales par
 - Todo control interactivo necesita nombre accesible; los iconos no sustituyen etiquetas.
 - La navegación con teclado debe alcanzar carrusel, filtros, orden y marcado de visto; el foco ha de ser visible.
 - Mantén contraste legible entre texto, superficie y estados. Respeta `prefers-reduced-motion` para animaciones no esenciales.
+- En móvil, una barra adhesiva permite alternar entre **Películas** y **Calendario**; ambos controles miden al menos 44 px. Desde 768 px, ambas áreas aparecen simultáneamente en dos columnas sin ocultar acciones ni contexto.

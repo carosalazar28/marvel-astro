@@ -54,7 +54,25 @@
 
 .preparation-card__status-action { margin-top: 1rem; }
 
-@media (max-width: 42rem) {
+.preparation-tracker__tabs { position: sticky; z-index: 1; top: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1.5rem; padding: 0.5rem 0; background: #0d1020; }
+.preparation-tracker__tab { min-height: 44px; border: 1px solid var(--border-color, #292d48); border-radius: 0.625rem; color: var(--text-primary); background: var(--surface-color, #11152a); font: inherit; font-weight: 700; cursor: pointer; }
+.preparation-tracker__tab[aria-pressed='true'] { border-color: var(--accent-color); background: var(--elevated-surface-color, #1a1f3a); }
+.preparation-tracker__tab:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+
+@media (max-width: 767px) {
+	.preparation-tracker__content[data-active-view='route'] .preparation-tracker__calendar { display: none; }
+	.preparation-tracker__content[data-active-view='calendar'] .preparation-tracker__route { display: none; }
+
+	.preparation-tracker__content {
+		min-width: 0;
+	}
+
 	.preparation-tracker__controls > * { width: 100%; }
 	.preparation-tracker__controls select { width: 100%; }
+}
+
+@media (min-width: 768px) {
+	.preparation-tracker__tabs { display: none; }
+	.preparation-tracker__content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+	.preparation-tracker__calendar .monthly-calendar { margin-top: 0; }
 }

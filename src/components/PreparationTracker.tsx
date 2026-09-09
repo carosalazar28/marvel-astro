@@ -26,6 +26,7 @@ interface PreparationTrackerProps {
 export default function PreparationTracker({ items, issues }: PreparationTrackerProps) {
   const [filter, setFilter] = useState<PreparationFilter>('all');
   const [sort, setSort] = useState<PreparationSort>('scheduled-date');
+  const [activeView, setActiveView] = useState<'route' | 'calendar'>('route');
   const knownContentIds = useMemo(() => items.map((item) => item.id), [items]);
   const { statuses, isHydrated, getStatus, advance, reset } = useViewingStatus(knownContentIds);
   const visibleItems = useMemo(
@@ -41,6 +42,12 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
     <section className="preparation-tracker" aria-label="Tracker de preparación">
       <ReadinessSummary items={readinessItems} />
 
+      <nav className="preparation-tracker__tabs" aria-label="Vistas del tracker">
+        <button className="preparation-tracker__tab" type="button" aria-pressed={activeView === 'route'} onClick={() => setActiveView('route')}>Películas</button>
+        <button className="preparation-tracker__tab" type="button" aria-pressed={activeView === 'calendar'} onClick={() => setActiveView('calendar')}>Calendario</button>
+      </nav>
+      <div className="preparation-tracker__content" data-active-view={activeView}>
+      <div className="preparation-tracker__route">
       <div className="preparation-tracker__controls" aria-label="Controles de la ruta">
         <label>
           Filtrar ruta
@@ -74,7 +81,11 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
         isHydrated={isHydrated}
         emptyMessage={items.length > 0 ? 'No hay contenido que coincida con los filtros seleccionados.' : undefined}
       />
+      </div>
+      <div className="preparation-tracker__calendar">
       <MonthlyCalendar items={items} getStatus={getStatus} />
+      </div>
+      </div>
     </section>
   );
 }

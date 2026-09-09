@@ -5,7 +5,7 @@
 - Implementado: layout Astro, cuenta regresiva del estreno objetivo y ruta de preparación versionada, validada y ordenada.
 - Implementado: tracker de ruta con transición `Sin ver → Viendo → Vista`, persistencia segura por `id` estable, reinicio local, resumen de preparación y filtros u orden sin mutar el catálogo.
 - Implementado: calendario mensual navegable con detalle por día y próximas visualizaciones derivadas de la misma ruta y progreso local.
-- Pendiente: pulido responsive específico de la interfaz integrada.
+- Implementado: composición responsive del tracker, con pestañas adhesivas en móvil y dos columnas en escritorio.
 
 ## Hito 0 — Calidad habilitante
 
@@ -21,6 +21,6 @@ Completado para la ruta de preparación: estados por `id`, tolerancia a datos lo
 
 ## Hito 3 — Pulido de experiencia
 
-Validar responsive, teclado, foco, contraste y movimiento reducido; completar las pruebas de los casos de uso documentados.
+Completar la validación visual manual de responsive, teclado, foco, contraste y movimiento reducido sobre navegadores objetivo.
 
 Cada hito se divide en PRs de máximo 1.000 líneas. Si su dependencia impide hacerlos independientes, se usan PRs stackeados y se declara su orden de merge.

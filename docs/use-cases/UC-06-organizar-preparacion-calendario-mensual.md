@@ -9,3 +9,5 @@
 **Resultado:** puede organizar lo que debe ver sin perder el contexto del plan ni cambiar el catálogo o el progreso desde el calendario.
 
 **Casos límite:** mes sin contenido, día sin contenido, varias visualizaciones el mismo día, ruta vacía, navegación entre años y estado local ausente. La interfaz conserva botones de mes y día accesibles, comunica los vacíos con texto y no depende solo de color o puntos para informar contenido o estado.
+
+**Responsive:** en móvil, la persona alterna entre **Películas** y **Calendario** mediante controles adhesivos; en escritorio, ambas áreas permanecen visibles en dos columnas. El cambio de vista no borra filtros, progreso ni mes seleccionado.
