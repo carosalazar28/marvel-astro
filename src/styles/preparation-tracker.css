@@ -1,0 +1,60 @@
+.preparation-tracker__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: end;
+	margin: 1.5rem 0 0;
+}
+
+.preparation-tracker__controls label {
+	display: grid;
+	gap: 0.4rem;
+	color: var(--text-secondary);
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+.preparation-tracker__controls select,
+.preparation-tracker__controls button,
+.preparation-card__status-action {
+	min-height: 2.5rem;
+	border: 1px solid var(--border-color, #292d48);
+	border-radius: 0.625rem;
+	font: inherit;
+}
+
+.preparation-tracker__controls select {
+	padding: 0.45rem 0.7rem;
+	color: var(--text-primary);
+	background: var(--surface-color, #11152a);
+}
+
+.preparation-tracker__controls button,
+.preparation-card__status-action {
+	padding: 0.45rem 0.8rem;
+	color: var(--text-primary);
+	background: var(--elevated-surface-color, #1a1f3a);
+	cursor: pointer;
+}
+
+.preparation-tracker__controls button:focus-visible,
+.preparation-tracker__controls select:focus-visible,
+.preparation-card__status-action:focus-visible {
+	outline: 3px solid var(--accent-color, #717cff);
+	outline-offset: 3px;
+}
+
+.preparation-tracker__controls button:disabled,
+.preparation-card__status-action:disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+.preparation-tracker__result-count { margin: 1.25rem 0 0; color: var(--text-secondary); }
+
+.preparation-card__status-action { margin-top: 1rem; }
+
+@media (max-width: 42rem) {
+	.preparation-tracker__controls > * { width: 100%; }
+	.preparation-tracker__controls select { width: 100%; }
+}

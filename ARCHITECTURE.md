@@ -42,4 +42,4 @@ No hay autenticación, backend, panel administrativo, integración de API, sincr
 
 ## Estado actual
 
-La página Astro carga la cuenta regresiva y la ruta React de solo lectura. La transición de estado, el progreso local y el calendario mensual siguen pendientes de sus historias de usuario; la ruta no usa `localStorage` hasta entonces.
+La página Astro carga la cuenta regresiva y un tracker React hidratado en cliente. El tracker recibe la ruta JSON ya validada, recupera el progreso local por `id`, deriva el resumen y filtra u ordena sin mutar el catálogo. El calendario mensual sigue pendiente de su historia de usuario.
