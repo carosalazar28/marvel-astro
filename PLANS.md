@@ -3,7 +3,8 @@
 ## Estado actual
 
 - Implementado: layout Astro, cuenta regresiva del estreno objetivo y ruta de preparación versionada, validada y ordenada.
-- Pendiente: transición de estado y persistencia por `id` estable, porcentaje de preparación, calendario mensual, filtros y orden.
+- Implementado: dominio reutilizable para transicionar `Sin ver → Viendo → Vista`, persistencia segura por `id` estable y reinicio local; todavía no se conecta a la lista de películas.
+- Pendiente: conectar los estados de progreso a la ruta, porcentaje de preparación, calendario mensual, filtros y orden.
 
 ## Hito 0 — Calidad habilitante
 
@@ -15,7 +16,7 @@ Completar el esquema JSON unificado con `id` estable, películas y series. La ru
 
 ## Hito 2 — Progreso personal
 
-Persistir ítems vistos por `id`, tolerar datos locales inválidos, calcular estadísticas y permitir filtros por estado, tipo y fase, más orden.
+Persistir estados por `id`, tolerar datos locales inválidos, calcular estadísticas y permitir filtros por estado, tipo y fase, más orden. La frontera de transición y persistencia está lista; resta conectarla al catálogo y a la interfaz.
 
 ## Hito 3 — Pulido de experiencia
 
