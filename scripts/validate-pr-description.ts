@@ -47,6 +47,10 @@ export function validatePrDescription(description: string): PrDescriptionValidat
     return invalid(`Template placeholder found: ${placeholder}`);
   }
 
+  if (!/\bCloses\s+#\d+\b/i.test(description)) {
+    return invalid('Missing issue closing reference: use Closes #<issue-number>');
+  }
+
   return { valid: true, errors: [] };
 }
 

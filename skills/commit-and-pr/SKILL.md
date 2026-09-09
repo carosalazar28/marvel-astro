@@ -28,7 +28,7 @@ Tipos habituales: `feat`, `fix`, `docs`, `test`, `refactor`, `build` y `chore`. 
 
 1. Calcula el tamaño con `git diff --shortstat <base>...HEAD`; suma inserciones y eliminaciones. Incluye código, documentación, pruebas y archivos de bloqueo.
 2. Completa las revisiones requeridas por las skills de negocio y técnica.
-3. La descripción debe cumplir exactamente la estructura definida en `.github/pull_request_template.md`: `Description`, `Changes`, `Testing` y `Additional Information`. Sustituye todos los textos de ejemplo por información concreta del cambio; no añadas secciones alternativas ni dejes placeholders.
+3. La descripción debe cumplir exactamente la estructura definida en `.github/pull_request_template.md`: `Description`, `Changes`, `Testing` y `Additional Information`. Sustituye todos los textos de ejemplo por información concreta del cambio; no añadas secciones alternativas ni dejes placeholders. En `Additional Information`, incluye `Closes #<issue-number>` para el issue que el PR entrega; si un PR no corresponde a un issue, crea o vincula el issue antes de abrirlo.
 4. Si el PR usa excepcionalmente la rama de otro PR abierto como base, declara la rama base, el PR relacionado, el motivo funcional y el orden de merge.
 
 No abras un PR que supere 1.000 líneas ni uno con revisiones incompletas. Divide el trabajo antes de solicitar la revisión.

@@ -15,3 +15,5 @@
 ## Additional Information
 
 <Any additional information or context required.>
+
+Closes #<issue-number>
