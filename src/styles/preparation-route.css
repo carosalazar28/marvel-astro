@@ -28,7 +28,7 @@
 .preparation-route__validation { border: 1px solid var(--border-color, #292d48); }
 .preparation-route__list { display: grid; gap: 1rem; padding: 0; margin: 0; list-style: none; }
 .preparation-card { display: grid; grid-template-columns: 9rem minmax(0, 1fr); overflow: hidden; background: var(--surface-color, #11152a); border: 1px solid var(--border-color, #292d48); border-radius: 1rem; }
-.preparation-card__artwork { min-height: 12rem; background-size: 400% 200%; background-repeat: no-repeat; }
+.preparation-card__artwork { align-self: start; height: 7.5rem; min-height: 0; margin: 1rem 0 1rem 1rem; border-radius: 0.75rem; background-size: 400% 200%; background-repeat: no-repeat; }
 .preparation-card__content { min-width: 0; padding: clamp(1.1rem, 3vw, 1.5rem); }
 .preparation-card__meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
 .preparation-card__meta span { padding: 0.25rem 0.6rem; border-radius: 999px; color: var(--text-secondary); background: var(--elevated-surface-color, #1a1f3a); font-size: 0.8rem; font-weight: 700; }
@@ -41,5 +41,5 @@
 
 @media (max-width: 40rem) {
 	.preparation-card { grid-template-columns: 6.5rem minmax(0, 1fr); }
-	.preparation-card__artwork { min-height: 100%; }
+	.preparation-card__artwork { height: 6rem; min-height: 0; margin: 0.75rem 0 0.75rem 0.75rem; border-radius: 0.625rem; }
 }

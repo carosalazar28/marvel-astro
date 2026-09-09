@@ -14,7 +14,7 @@ La identidad visual usa `#0D1020` como fondo, `#11152A` y `#1A1F3A` como superfi
 4. Estado de visto y porcentaje de avance.
 5. Metadatos secundarios: tipo, fase, año y rango de fechas.
 
-El hero de estreno es el primer bloque de la página. Su imagen decorativa local queda debajo de un degradado oscuro para preservar legibilidad, y sus cuatro unidades temporales se agrupan en celdas delimitadas; no depende de una imagen remota. La ruta de preparación se presenta como una lista cronológica de tarjetas. Cada tarjeta muestra cápsulas textuales para tipo y estado inicial, la fecha con el elemento semántico `time`, y una frase breve de relevancia. Una fecha atrasada añade la etiqueta textual **Atrasada** además de su acento de color, para que el significado no dependa del color.
+El hero de estreno es el primer bloque de la página. Su imagen decorativa local queda debajo de un degradado oscuro para preservar legibilidad, y sus cuatro unidades temporales se agrupan en celdas delimitadas; no depende de una imagen remota. La ruta de preparación se presenta como una lista cronológica de tarjetas. Cada tarjeta muestra una miniatura decorativa compacta, alineada al inicio y separada del borde, para que no ocupe toda la altura de la tarjeta; también muestra cápsulas textuales para tipo y estado inicial, la fecha con el elemento semántico `time`, y una frase breve de relevancia. Una fecha atrasada añade la etiqueta textual **Atrasada** además de su acento de color, para que el significado no dependa del color.
 
 Cada tarjeta debe comunicar su estado sin depender únicamente del color. Los acentos pueden diferenciar estrenos, tipos o fases, pero siempre con texto, icono o etiqueta equivalente.
 
