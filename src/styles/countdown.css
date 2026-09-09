@@ -11,6 +11,8 @@
 	text-align: center;
 	max-width: 700px;
 	width: 100%;
+	/* React islands do not inherit Astro's scoped universal selector. */
+	box-sizing: border-box;
 	position: relative;
 	overflow: hidden;
 }

@@ -6,6 +6,11 @@ const sliderStyles = readFileSync(
   'utf8',
 );
 
+const countdownStyles = readFileSync(
+  new URL('../src/styles/countdown.css', import.meta.url),
+  'utf8',
+);
+
 describe('contrato responsive del carrusel', () => {
   it('muestra solo el estreno activo y desplaza los controles fuera de la tarjeta en móvil', () => {
     expect(sliderStyles).toMatch(/@media \(max-width: 768px\)[\s\S]*?\.slider__slide--prev,[\s\S]*?\.slider__slide--next\s*\{\s*display:\s*none;/);
@@ -17,5 +22,9 @@ describe('contrato responsive del carrusel', () => {
   it('permite que la tarjeta central crezca con el contenido en móvil', () => {
     expect(sliderStyles).toMatch(/@media \(max-width: 768px\)[\s\S]*?\.slider__card\s*\{[\s\S]*?height:\s*auto;/);
     expect(sliderStyles).toMatch(/@media \(max-width: 768px\)[\s\S]*?\.slider__card--active\s*\{[\s\S]*?transform:\s*none;/);
+  });
+
+  it('incluye el padding del hero dentro de su ancho para evitar desbordamiento horizontal', () => {
+    expect(countdownStyles).toMatch(/\.countdown\s*\{[\s\S]*?box-sizing:\s*border-box;/);
   });
 });
