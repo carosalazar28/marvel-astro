@@ -35,6 +35,7 @@ Este repositorio desarrolla una aplicación personal para completar un calendari
 │   ├── layouts/      Estructura HTML compartida.
 │   ├── components/   Islas y componentes React; `atoms/` contiene piezas presentacionales pequeñas.
 │   ├── hooks/        Hooks React y lógica de estado reutilizable.
+│   ├── services/     Fronteras con APIs del navegador y otras integraciones locales.
 │   ├── data/         JSON versionado de catálogo y estrenos.
 │   ├── styles/       Estilos globales y estilos de componentes.
 │   └── assets/       Recursos procesados por Astro.
