@@ -9,10 +9,10 @@ const routeStyles = readFileSync(
 describe('layout de la ruta de preparación', () => {
   it('mantiene la miniatura compacta sin estirarla a la altura de la tarjeta', () => {
     expect(routeStyles).toMatch(
-      /\.preparation-card__artwork\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?height:\s*7\.5rem;[\s\S]*?min-height:\s*0;/,
+      /\.preparation-card__artwork\s*\{[\s\S]*?align-self:\s*start;[\s\S]*?block-size:\s*clamp\(4\.5rem, 7vw, 6rem\);[\s\S]*?max-block-size:\s*6rem;[\s\S]*?min-block-size:\s*0;/,
     );
     expect(routeStyles).toMatch(
-      /@media \(max-width: 40rem\)\s*\{[\s\S]*?\.preparation-card__artwork\s*\{[\s\S]*?height:\s*6rem;[\s\S]*?min-height:\s*0;/,
+      /@media \(max-width: 40rem\)\s*\{[\s\S]*?\.preparation-card__artwork\s*\{[\s\S]*?block-size:\s*clamp\(4\.5rem, 18vw, 5rem\);[\s\S]*?max-block-size:\s*5rem;[\s\S]*?min-block-size:\s*0;/,
     );
   });
 });
