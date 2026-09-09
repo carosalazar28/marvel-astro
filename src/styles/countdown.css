@@ -95,6 +95,11 @@
 	z-index: 1;
 }
 
+.countdown__date { color: var(--text-primary); font-weight: 700; margin: 0 0 0.75rem; position: relative; z-index: 1; }
+.countdown__released, .countdown__error { margin: 2rem 0 0; padding: 1rem; border-radius: 0.75rem; position: relative; z-index: 1; }
+.countdown__released { background: rgba(82, 214, 157, 0.12); color: #93f0bf; }
+.countdown__error { background: rgba(255, 255, 255, 0.08); color: var(--text-secondary); }
+
 .countdown__grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);

@@ -34,6 +34,7 @@ describe('CountdownTimer', () => {
       <CountdownTimer
         title="Avengers: Doomsday"
         targetDate="2026-01-03T02:03:04.000Z"
+        targetDateLabel="3 de enero de 2026"
         subtitle="Cuenta regresiva"
         isCurrent
       />,
@@ -41,6 +42,7 @@ describe('CountdownTimer', () => {
 
     expect(screen.getAllByText('2')).toHaveLength(2);
     expect(screen.getByText('Cuenta regresiva')).toBeTruthy();
+    expect(screen.getByText('3 de enero de 2026')).toBeTruthy();
 
     act(() => {
       vi.advanceTimersByTime(1_000);
@@ -65,6 +67,7 @@ describe('CountdownTimer', () => {
 
   it('libera el temporizador al desmontar la tarjeta activa', () => {
     vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-01-01T00:00:00.000Z'));
     const clearIntervalSpy = vi.spyOn(globalThis, 'clearInterval');
     const { unmount } = render(
       <CountdownTimer
@@ -77,5 +80,39 @@ describe('CountdownTimer', () => {
     unmount();
 
     expect(clearIntervalSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('reemplaza el contador por un estado legible cuando el estreno ya ocurrió', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-01-03T00:00:00.000Z'));
+    const setIntervalSpy = vi.spyOn(globalThis, 'setInterval');
+
+    render(
+      <CountdownTimer
+        title="Avengers: Doomsday"
+        targetDate="2026-01-01T00:00:00.000Z"
+        isCurrent
+      />,
+    );
+
+    const releasedMessage = screen.getByRole('status');
+    expect(releasedMessage.textContent).toContain('Este estreno ya está disponible');
+    expect(releasedMessage.parentElement?.querySelector('.countdown__grid')).toBeNull();
+    expect(setIntervalSpy).not.toHaveBeenCalled();
+  });
+
+  it('explica una fecha inválida sin iniciar un temporizador', () => {
+    const setIntervalSpy = vi.spyOn(globalThis, 'setInterval');
+
+    render(
+      <CountdownTimer
+        title="Avengers: Doomsday"
+        targetDate="fecha-inválida"
+        isCurrent
+      />,
+    );
+
+    expect(screen.getByRole('alert').textContent).toContain('No podemos mostrar la cuenta regresiva');
+    expect(setIntervalSpy).not.toHaveBeenCalled();
   });
 });

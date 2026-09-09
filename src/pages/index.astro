@@ -1,6 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SliderCountdown from '../components/SliderCountdown';
+import CountdownTimer from '../components/CountdownTimer';
+
+const targetPremiere = {
+	title: 'Avengers: Doomsday',
+	targetDate: '2026-12-18T00:00:00',
+	targetDateLabel: '18 de diciembre de 2026',
+};
 ---
 
 <Layout>
@@ -13,19 +19,11 @@ import SliderCountdown from '../components/SliderCountdown';
 
 		<section class="premieres" aria-labelledby="upcoming-premieres-title">
 			<div class="premieres__heading">
-				<p class="premieres__eyebrow">Próximos estrenos</p>
-				<h2 id="upcoming-premieres-title">Elige tu próxima meta</h2>
-				<p>Consulta cuánto falta para el estreno que quieres preparar.</p>
+				<p class="premieres__eyebrow">Meta de estreno</p>
+				<h2 id="upcoming-premieres-title">Tu próxima película</h2>
+				<p>Completa tu ruta de visionado antes de la fecha de estreno.</p>
 			</div>
-
-			<SliderCountdown
-				client:load
-				slides={[
-					{ id: 1, title: "Avengers: Doomsday", targetDate: "2026-12-18T00:00:00" },
-					{ id: 2, title: "Spider-Man: Brand New Day", targetDate: "2026-07-31T00:00:00" },
-					{ id: 3, title: "The Fantastic Four: First Steps", targetDate: "2026-11-01T00:00:00" }
-				]}
-			/>
+			<CountdownTimer client:load {...targetPremiere} isCurrent />
 		</section>
 	</main>
 </Layout>
