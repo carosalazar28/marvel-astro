@@ -43,6 +43,10 @@ Cuando el objetivo acordado esté implementado y haya pasado sus controles de ca
 
 Si no es posible abrirlo por una condición del harness —por ejemplo, cobertura incompleta, tamaño excedido o autenticación ausente— no declares el objetivo entregado. Divide, corrige o comunica el bloqueo concreto.
 
+## Actualización de un PR existente
+
+Justo antes de subir cambios a la rama de un PR existente o editar su descripción, consulta su estado remoto con `gh pr view <número> --json state,mergedAt`. Si está `MERGED` o `CLOSED`, no añadas trabajo nuevo a esa rama: parte de `origin/main`, crea un issue si el anterior se cerró y abre un PR nuevo contra `main`. Esta comprobación evita que una entrega posterior quede fuera de `main` al actualizar una rama cuyo PR ya terminó.
+
 ## Entrega autónoma a GitHub
 
 Usa GitHub CLI autenticado por HTTPS para las operaciones remotas. Antes de subir o crear un PR, ejecuta `gh auth status`; si no hay una cuenta activa, detén la entrega y pide a la persona usuaria completar una sola vez:
