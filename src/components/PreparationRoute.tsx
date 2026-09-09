@@ -34,6 +34,11 @@ const artworkPosition: Readonly<Record<string, string>> = {
   'fantastic-four-first-steps': '100% 100%',
 };
 
+/** Normalizes Vite's test string and Astro's processed-image metadata. */
+export function resolveAssetUrl(asset: string | { readonly src: string }): string {
+  return typeof asset === 'string' ? asset : asset.src;
+}
+
 function getNextActionLabel(status: ViewingStatus): string {
   if (status === 'unseen') {
     return 'Marcar como viendo';
@@ -51,7 +56,7 @@ interface PreparationCardProps {
 }
 
 function PreparationCard({ item, status, isInteractive, isHydrated, onAdvance }: PreparationCardProps) {
-  const artworkStyle = { backgroundImage: `url(${artworkSheet})`, backgroundPosition: artworkPosition[item.id] ?? '0% 0%' };
+  const artworkStyle = { backgroundImage: `url(${resolveAssetUrl(artworkSheet)})`, backgroundPosition: artworkPosition[item.id] ?? '0% 0%' };
 
   return (
     <article className="preparation-card">
