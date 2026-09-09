@@ -11,6 +11,7 @@ La ruta principal se presenta como **Plan de Cine MCU**: un encabezado estático
 - El calendario mezcla películas y series en una única secuencia semanal.
 - La persona usuaria puede avanzar cada ítem de `Sin ver` a `Viendo` y finalmente `Vista`; un ítem ya visto no retrocede por una acción repetida. Puede reiniciar su progreso local cuando la interfaz que muestra el plan lo exponga.
 - Puede filtrar por estado o tipo, y ordenar por fecha programada o título. Los filtros no cambian el resumen ni el contenido JSON.
+- El calendario mensual permite navegar entre meses, seleccionar cualquier día y consultar su contenido programado y estado local con texto. Los días con contenido se distinguen por cantidad y nombres accesibles, no solo por color. Un panel de próximas visualizaciones deriva el siguiente paso desde el día seleccionado.
 - El progreso persiste en el dispositivo y una entrada local inválida no rompe la interfaz.
 - El resumen de preparación recibe una ruta mediante `id` y `status`, elimina identificadores vacíos o duplicados al calcular y muestra porcentaje, completados, pendientes y un mensaje explícito cuando toda la ruta está vista. No posee catálogo ni persistencia.
 - La cuenta regresiva se renderiza con ceros durante SSR e hidratación; al montar en el navegador calcula de inmediato el tiempo real y después se actualiza cada segundo. Así el reloj del servidor y el cliente no producen HTML distinto durante la hidratación.
@@ -24,7 +25,8 @@ La ruta principal se presenta como **Plan de Cine MCU**: un encabezado estático
 - `ReadinessSummary` es una presentación reutilizable: deriva el avance con `getReadinessSummary` a partir de props tipadas y deja el catálogo, las transiciones y `localStorage` a su futuro contenedor.
 - Los componentes de Astro pasan datos versionados a las islas sin duplicar fuentes de verdad.
 - `PreparationRoute` recibe únicamente ítems ya validados y avisos de validación; puede recibir el estado y callback del contenedor, pero nunca lee `localStorage`. `parsePreparationRoute` conserva el límite entre contenido desconocido del JSON y props tipadas de interfaz.
+- `MonthlyCalendar` solo presenta la ruta y los estados que recibe: posee navegación y selección temporal, pero no escribe progreso ni edita el JSON. `monthly-calendar.ts` centraliza la cuadrícula UTC, navegación mensual y priorización cronológica.
 
 ## Estado actual
 
-`CountdownTimer` y `PreparationTracker` están activos. El tracker persiste solo el estado por `id`; no convierte el catálogo JSON en estado mutable. El calendario mensual será una historia separada.
+`CountdownTimer`, `PreparationTracker` y `MonthlyCalendar` están activos. El tracker persiste solo el estado por `id`; ni la ruta ni el calendario convierten el catálogo JSON en estado mutable.

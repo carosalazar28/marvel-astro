@@ -10,6 +10,7 @@ import {
 } from '../utils/preparation-tracker';
 import PreparationRoute from './PreparationRoute';
 import ReadinessSummary from './ReadinessSummary';
+import MonthlyCalendar from './MonthlyCalendar';
 import '../styles/preparation-tracker.css';
 
 interface PreparationTrackerProps {
@@ -73,6 +74,7 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
         isHydrated={isHydrated}
         emptyMessage={items.length > 0 ? 'No hay contenido que coincida con los filtros seleccionados.' : undefined}
       />
+      <MonthlyCalendar items={items} getStatus={getStatus} />
     </section>
   );
 }

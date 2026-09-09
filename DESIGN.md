@@ -20,6 +20,8 @@ Cada tarjeta debe comunicar su estado sin depender únicamente del color. Los ac
 
 El resumen de preparación muestra el porcentaje, la cantidad completada y pendiente, y un mensaje textual. Cuando no hay ruta comunica ese estado; al completar todos los elementos declara explícitamente que la persona está lista para el estreno. Los selectores de filtro y orden, el reinicio local y el cambio de estado son controles con etiqueta visible, foco perceptible y una altura mínima de 40 px; si un filtro no produce resultados, se comunica con texto.
 
+El calendario mensual usa una cuadrícula de lunes a domingo, botones reales para navegar o seleccionar días y un contorno visible para el día activo. Cada día con contenido escribe su cantidad; su nombre accesible añade títulos y estados para que el significado no dependa de color. Debajo, el detalle del día y el panel de próximas visualizaciones explican el contexto seleccionado.
+
 ## Responsive y accesibilidad básica
 
 - La experiencia debe funcionar desde 320 px hasta escritorio sin ocultar contenido esencial.

@@ -4,7 +4,8 @@
 
 - Implementado: layout Astro, cuenta regresiva del estreno objetivo y ruta de preparación versionada, validada y ordenada.
 - Implementado: tracker de ruta con transición `Sin ver → Viendo → Vista`, persistencia segura por `id` estable, reinicio local, resumen de preparación y filtros u orden sin mutar el catálogo.
-- Pendiente: calendario mensual y pulido responsive específico de la interfaz integrada.
+- Implementado: calendario mensual navegable con detalle por día y próximas visualizaciones derivadas de la misma ruta y progreso local.
+- Pendiente: pulido responsive específico de la interfaz integrada.
 
 ## Hito 0 — Calidad habilitante
 
@@ -12,7 +13,7 @@ Completado: Vitest, `@vitest/coverage-v8`, Testing Library, `@testing-library/us
 
 ## Hito 1 — Datos y calendario
 
-Completar el esquema JSON unificado con `id` estable, películas y series. La ruta inicial ya se muestra desde JSON y admite filtros; queda el calendario mensual.
+Completado: la ruta JSON unificada se muestra como lista y calendario mensual, con películas y series identificadas por `id` estable.
 
 ## Hito 2 — Progreso personal
 
