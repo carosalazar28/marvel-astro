@@ -6,6 +6,7 @@
 - Implementado: tracker de ruta con transición `Sin ver → Viendo → Vista`, persistencia segura por `id` estable, reinicio local, resumen de preparación y filtros u orden sin mutar el catálogo.
 - Implementado: calendario mensual navegable con detalle por día y próximas visualizaciones derivadas de la misma ruta y progreso local.
 - Implementado: composición responsive del tracker, con pestañas adhesivas en móvil y dos columnas en escritorio.
+- En auditoría: comparación de interfaz y flujos con el diseño de referencia en el issue #32. Los informes versionados y el backlog técnico viven en `docs/audits/`; las correcciones se dividirán en issues y PRs independientes.
 
 ## Hito 0 — Calidad habilitante
 
@@ -21,6 +22,6 @@ Completado para la ruta de preparación: estados por `id`, tolerancia a datos lo
 
 ## Hito 3 — Pulido de experiencia
 
-Completar la validación visual manual de responsive, teclado, foco, contraste y movimiento reducido sobre navegadores objetivo.
+Completar la validación visual manual de responsive, teclado, foco, contraste y movimiento reducido sobre navegadores objetivo. La cadena de auditoría registra primero evidencia UI/UX y de producto, y solo después consolida y prioriza la deuda técnica antes de implementar.
 
 Cada hito se divide en PRs de máximo 1.000 líneas. Si su dependencia impide hacerlos independientes, se usan PRs stackeados y se declara su orden de merge.

@@ -43,6 +43,7 @@ Este repositorio desarrolla una aplicación personal para completar un calendari
 ├── tests/            Pruebas unitarias y de integración.
 ├── public/           Recursos estáticos publicados sin procesamiento.
 ├── docs/use-cases/   Flujos observables, precondiciones y casos límite del producto.
+├── docs/audits/      Evidencia versionada de auditorías y backlog técnico consolidado.
 ├── skills/           Instrucciones operativas del harness; una carpeta por skill con `SKILL.md`.
 ├── .github/          Plantillas y automatización de GitHub.
 ├── AGENTS.md         Reglas de entrada para agentes y contribuciones.
@@ -50,6 +51,17 @@ Este repositorio desarrolla una aplicación personal para completar un calendari
 ```
 
 No crees una carpeta nueva sin una responsabilidad clara. Coloca el código según su responsabilidad: rutas en `pages`, composición compartida en `layouts`, interacción reutilizable en `components`/`hooks`, datos editables en `data` y estilos en `styles`.
+
+## Auditorías de experiencia
+
+Los perfiles reutilizables de `.github/agents/` separan la auditoría de la remediación. Para una auditoría de producto o interfaz, los perfiles de UI/UX y producto trabajan sobre el mismo commit de `main`, sin modificar código. El responsable técnico consolida sus informes antes de priorizar, y el ejecutor crea issues verificables antes de cambiar el producto.
+
+- `ui-ux-pixel-perfect-auditor.agent.md` compara los frames de Figma con la aplicación en escritorio y móvil.
+- `product-journey-auditor.agent.md` verifica los flujos de `docs/use-cases/` como una persona usuaria.
+- `technical-audit-lead.agent.md` consolida evidencia, elimina duplicados y mantiene el backlog técnico.
+- `remediation-engineer.agent.md` transforma una unidad priorizada en issue, implementación y PR contra `main`.
+
+La evidencia vive en `docs/audits/`; el issue de auditoría solo resume el avance y enlaza los documentos. Los criterios reutilizables están en `docs/audits/AUDIT_GUIDELINES.md`. Ningún perfil fusiona pull requests.
 
 ## Arquitectura y datos
 
