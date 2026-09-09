@@ -15,7 +15,8 @@ Adds a versioned engineering harness.
 
 ## Additional Information
 
-- Base branch: main.`;
+- Base branch: main.
+- Closes #42.`;
 
 describe('validatePrDescription', () => {
   it('accepts a complete description with the required sections in order', () => {
@@ -47,6 +48,13 @@ describe('validatePrDescription', () => {
     expect(validatePrDescription(validDescription.replace('Adds a versioned engineering harness.', '<Provide a brief description of what this PR does.>'))).toEqual({
       valid: false,
       errors: ['Template placeholder found: <Provide a brief description of what this PR does.>'],
+    });
+  });
+
+  it('requires a closing reference for the issue delivered by the pull request', () => {
+    expect(validatePrDescription(validDescription.replace('- Closes #42.', ''))).toEqual({
+      valid: false,
+      errors: ['Missing issue closing reference: use Closes #<issue-number>'],
     });
   });
 });
