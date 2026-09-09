@@ -8,4 +8,6 @@
 
 **Resultado:** el progreso permanece disponible al recargar en el mismo navegador.
 
-**Casos límite:** sin ítems; almacenamiento vacío, inaccesible o con JSON corrupto; un `id` guardado que ya no pertenece al catálogo. La interfaz conserva su funcionamiento y omite datos no válidos.
+**Resumen de preparación:** a partir de los ítems de la ruta, la interfaz muestra el porcentaje y las cantidades completadas y pendientes. Solo declara que la persona está lista para el estreno cuando existe al menos un ítem y todos están vistos.
+
+**Casos límite:** sin ítems; almacenamiento vacío, inaccesible o con JSON corrupto; un `id` guardado que ya no pertenece al catálogo; estados desconocidos e identificadores repetidos. La interfaz conserva su funcionamiento, omite identificadores vacíos y cuenta una sola vez cada `id` estable.

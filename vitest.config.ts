@@ -14,6 +14,8 @@ export default defineConfig({
         'src/components/CountdownTimer.tsx',
         'src/components/PreparationRoute.tsx',
         'src/utils/preparation-route.ts',
+        'src/utils/readiness.ts',
+        'src/components/ReadinessSummary.tsx',
       ],
       thresholds: {
         branches: 100,
