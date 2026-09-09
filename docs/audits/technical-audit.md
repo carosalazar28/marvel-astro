@@ -58,6 +58,7 @@ Los cuatro hallazgos UI/UX no son duplicados: cubren, respectivamente, contenci�
 | Fuentes | [UX-005](./ui-ux-report.md#ux-005--la-composición-de-escritorio-no-coincide-con-el-frame-de-dos-columnas-de-figma); [producto: UC-01 y UC-06 sin incidencia funcional](./product-report.md#uc-01--consultar-el-plan-semanal) |
 | Clasificación | **Defecto** |
 | Prioridad | **P2** |
+| Estado | **En remediación:** issue [#40](https://github.com/carosalazar28/marvel-astro/issues/40). |
 | Impacto | Ruta, resumen, filtros y calendario siguen siendo utilizables, pero su agrupación y proporción no permiten la lectura de dos columnas prevista para escritorio. |
 | Riesgo técnico confirmado | El tracker ya usa una cuadrícula desde 768 px, pero el resumen se renderiza antes del contenedor de ruta/calendario y los filtros pertenecen a la columna de ruta. La estructura existente explica la diferencia de agrupación observada; no hay evidencia de un problema de datos, persistencia o rendimiento. |
 | Criterio de cierre | A 1440 px, después del hero, la ruta con su resumen y el calendario aparecen agrupados en dos columnas con encabezados y proporciones equivalentes al frame Figma. Filtros, estado local, selección de día y navegación mensual mantienen los resultados de UC-01, UC-03 y UC-06. |

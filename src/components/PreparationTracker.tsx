@@ -40,14 +40,13 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
 
   return (
     <section className="preparation-tracker" aria-label="Tracker de preparación">
-      <ReadinessSummary items={readinessItems} />
-
       <nav className="preparation-tracker__tabs" aria-label="Vistas del tracker">
         <button className="preparation-tracker__tab" type="button" aria-pressed={activeView === 'route'} onClick={() => setActiveView('route')}>Películas</button>
         <button className="preparation-tracker__tab" type="button" aria-pressed={activeView === 'calendar'} onClick={() => setActiveView('calendar')}>Calendario</button>
       </nav>
       <div className="preparation-tracker__content" data-active-view={activeView}>
       <div className="preparation-tracker__route">
+      <ReadinessSummary items={readinessItems} />
       <div className="preparation-tracker__controls" aria-label="Controles de la ruta">
         <label>
           Filtrar ruta
