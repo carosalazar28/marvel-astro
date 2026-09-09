@@ -2,18 +2,17 @@
 
 ## Estado actual
 
-- Implementado: layout Astro, carrusel de cuentas regresivas y hook de cuenta regresiva.
-- Parcial: componente de películas con marcado local, estadísticas, filtro y orden; aún no se muestra en la página.
+- Implementado: layout Astro, cuenta regresiva del estreno objetivo y ruta de preparación versionada, validada y ordenada.
 - Implementado: dominio reutilizable para transicionar `Sin ver → Viendo → Vista`, persistencia segura por `id` estable y reinicio local; todavía no se conecta a la lista de películas.
-- Pendiente: modelo de datos unificado, soporte de series, filtros por tipo/fase y conexión de progreso con la interfaz del plan.
+- Pendiente: conectar los estados de progreso a la ruta, porcentaje de preparación, calendario mensual, filtros y orden.
 
 ## Hito 0 — Calidad habilitante
 
-Configurar Vitest, `@vitest/coverage-v8`, Testing Library, `@testing-library/user-event`, `jsdom` y scripts npm de prueba/cobertura. El validador de descripciones de PR es la primera unidad cubierta al 100%; la misma exigencia aplica a todo código ejecutable futuro. La verificación de cobertura diferencial debe ejecutarse antes de agregar funcionalidades de v1.
+Completado: Vitest, `@vitest/coverage-v8`, Testing Library, `@testing-library/user-event`, `jsdom`, scripts npm de prueba/cobertura y validador de descripciones de PR. Todo código ejecutable futuro mantiene 100% de cobertura de líneas, funciones y ramas.
 
 ## Hito 1 — Datos y calendario
 
-Definir el esquema JSON unificado con `id` estable, películas y series. Conectar el calendario a la página y mostrar la secuencia semanal.
+Completar el esquema JSON unificado con `id` estable, películas y series. La ruta inicial de preparación ya se muestra desde JSON; queda el calendario mensual y sus filtros.
 
 ## Hito 2 — Progreso personal
 

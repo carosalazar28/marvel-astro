@@ -1,0 +1,66 @@
+[
+  {
+    "id": "iron-man",
+    "title": "Iron Man",
+    "type": "movie",
+    "scheduledDate": "2026-10-28",
+    "initialStatus": "unwatched",
+    "reason": "Inicia el MCU y presenta a Tony Stark, una pieza central de los Vengadores."
+  },
+  {
+    "id": "captain-america-first-avenger",
+    "title": "Capitán América: El primer vengador",
+    "type": "movie",
+    "scheduledDate": "2026-11-04",
+    "initialStatus": "unwatched",
+    "reason": "Explica el origen de Steve Rogers y el legado que une al equipo."
+  },
+  {
+    "id": "the-avengers",
+    "title": "The Avengers",
+    "type": "movie",
+    "scheduledDate": "2026-11-11",
+    "initialStatus": "unwatched",
+    "reason": "Muestra cómo se forma el equipo original de los Vengadores."
+  },
+  {
+    "id": "avengers-infinity-war",
+    "title": "Avengers: Infinity War",
+    "type": "movie",
+    "scheduledDate": "2026-11-18",
+    "initialStatus": "unwatched",
+    "reason": "Sitúa el conflicto cósmico y las consecuencias para los héroes."
+  },
+  {
+    "id": "avengers-endgame",
+    "title": "Avengers: Endgame",
+    "type": "movie",
+    "scheduledDate": "2026-11-25",
+    "initialStatus": "unwatched",
+    "reason": "Cierra la Saga del Infinito y redefine el futuro del equipo."
+  },
+  {
+    "id": "loki-season-one",
+    "title": "Loki · Temporada 1",
+    "type": "series",
+    "scheduledDate": "2026-12-02",
+    "initialStatus": "unwatched",
+    "reason": "Introduce variantes y ramificaciones temporales relevantes para el MCU."
+  },
+  {
+    "id": "doctor-strange-multiverse-of-madness",
+    "title": "Doctor Strange en el multiverso de la locura",
+    "type": "movie",
+    "scheduledDate": "2026-12-09",
+    "initialStatus": "unwatched",
+    "reason": "Amplía las consecuencias del multiverso dentro de la historia principal."
+  },
+  {
+    "id": "fantastic-four-first-steps",
+    "title": "Los Cuatro Fantásticos: primeros pasos",
+    "type": "movie",
+    "scheduledDate": "2026-12-16",
+    "initialStatus": "unwatched",
+    "reason": "Presenta a la familia fantástica antes de la próxima reunión de héroes."
+  }
+]

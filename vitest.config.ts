@@ -12,6 +12,8 @@ export default defineConfig({
         'src/components/SliderCountdown.tsx',
         'src/utils/countdown-time.ts',
         'src/components/CountdownTimer.tsx',
+        'src/components/PreparationRoute.tsx',
+        'src/utils/preparation-route.ts',
         'src/utils/progress/viewing-status.ts',
         'src/services/viewing-status-storage.ts',
         'src/hooks/useViewingStatus.ts',

@@ -6,11 +6,11 @@ La aplicación es para una persona que desea completar, a un ritmo de un conteni
 
 ## Propuesta de valor
 
-En una sola página puede saber qué corresponde ver, qué ya completó, qué sigue y cuánto falta para los próximos estrenos. El producto no intenta ser una enciclopedia MCU ni una red social.
+En una sola página puede saber cuánto falta para un estreno objetivo y seguir una ruta editorial ordenada de contenido relevante, con fecha y motivo para verlo. El producto no intenta ser una enciclopedia MCU ni una red social.
 
 ## Señal de éxito de v1
 
-La persona puede identificar el contenido de la semana, marcarlo al terminar y conocer su progreso total sin fricción ni configuración previa.
+La persona puede identificar qué contenido le corresponde ver antes del estreno, reconocer si una fecha se atrasó y, en las historias posteriores, marcarlo y conocer su preparación sin fricción ni configuración previa.
 
 ## Límites
 

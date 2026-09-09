@@ -14,7 +14,7 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 
 - **Astro** compone la ruta y el layout, y entrega contenido estático.
 - **React** maneja el carrusel de estrenos, el calendario, filtros, orden y marcado de contenido visto.
-- **JSON en `src/data/`** es la fuente de verdad de catálogo y estrenos. Se edita manualmente y se versiona junto al código.
+- **JSON en `src/data/`** es la fuente de verdad de catálogo, ruta de preparación y estrenos. Se edita manualmente y se versiona junto al código.
 - **`localStorage`** guarda un mapa versionado de estados de visionado por `id` estable (`watching` o `watched`). La ausencia de una entrada significa `unseen`. No es una fuente de catálogo ni un mecanismo de sincronización.
 
 ## Organización de código
@@ -28,9 +28,11 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 
 `src/services/` contiene fronteras explícitas con servicios del navegador. Por ahora, `viewing-status-storage.ts` es la única: serializa, recupera y elimina el mapa de progreso sin propagar errores de `localStorage`. Los hooks coordinan estos efectos después del montaje y los componentes no acceden al almacenamiento directamente.
 
-## Contrato de datos objetivo
+## Contrato de datos
 
 Cada ítem del calendario debe incluir `id`, `title`, `type` (`movie` o `series`), `week`, `dateRange`, `startDate`, `endDate`, `year` y `phase`. `id` es inmutable y es la única clave permitida para el progreso local.
+
+La ruta editorial de `src/data/preparation-route.json` incluye `id`, `title`, `type` (`movie` o `series`), `scheduledDate` (`YYYY-MM-DD`), `initialStatus` (`unwatched`) y `reason`. `parsePreparationRoute` valida este contrato antes de que Astro lo entregue a la interfaz: descarta entradas inválidas o con identificadores duplicados, conserva las válidas ordenadas por fecha y comunica los problemas sin detener la página. Calcula `isOverdue` desde la fecha programada y la fecha actual; no escribe progreso.
 
 Los estrenos deben incluir `id`, `title`, `targetDate` y, opcionalmente, un tema visual permitido. Las fechas se almacenan en ISO 8601.
 
@@ -40,4 +42,4 @@ No hay autenticación, backend, panel administrativo, integración de API, sincr
 
 ## Estado actual
 
-La página Astro ya carga un carrusel React de cuenta regresiva. Existe una vista React de películas con persistencia local, pero no está conectada a la página y el JSON actual todavía no cumple el contrato unificado ni contiene series. Es deuda de v1, no comportamiento ya entregado.
+La página Astro carga la cuenta regresiva y la ruta React de solo lectura. La transición de estado, el progreso local y el calendario mensual siguen pendientes de sus historias de usuario; la ruta no usa `localStorage` hasta entonces.

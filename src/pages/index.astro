@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CountdownTimer from '../components/CountdownTimer';
+import PreparationRoute from '../components/PreparationRoute';
+import preparationRoute from '../data/preparation-route.json';
+import { parsePreparationRoute } from '../utils/preparation-route';
 
 const targetPremiere = {
 	title: 'Avengers: Doomsday',
 	targetDate: '2026-12-18T00:00:00',
 	targetDateLabel: '18 de diciembre de 2026',
 };
+
+const route = parsePreparationRoute(preparationRoute, new Date());
 ---
 
 <Layout>
@@ -25,6 +30,8 @@ const targetPremiere = {
 			</div>
 			<CountdownTimer client:load {...targetPremiere} isCurrent />
 		</section>
+
+		<PreparationRoute items={route.items} issues={route.issues} />
 	</main>
 </Layout>
 
