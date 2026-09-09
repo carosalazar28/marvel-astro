@@ -4,17 +4,17 @@
 
 El producto se identifica como **Plan de Cine MCU**. Es un plan personal, oscuro y minimalista para preparar un estreno: la portada debe explicar primero la meta de estreno, después la ruta semanal y finalmente el progreso. La información domina sobre la decoración.
 
-La identidad visual usa `#0D1020` como fondo, `#11152A` y `#1A1F3A` como superficies, `#717CFF` como acento principal, `#EEF0F7` para texto principal y `#96A0C5` para texto secundario. Inter se usa para lectura, Space Grotesk para títulos y JetBrains Mono para etiquetas o cifras temporales.
+La identidad visual usa `#0D1020` como fondo, `#11152A` y `#1A1F3A` como superficies, `#717CFF` como acento principal, `#EEF0F7` para texto principal y `#96A0C5` para texto secundario. Inter se usa para lectura, Fraunces para el título del hero de estreno, Space Grotesk para títulos funcionales y JetBrains Mono para etiquetas o cifras temporales.
 
 ## Jerarquía
 
-1. Identidad de Plan de Cine MCU y la meta de estreno elegida.
-2. Cuenta regresiva y próximos estrenos.
+1. Meta de estreno elegida: hero cinematográfico local, rótulo, título, subtítulo, fecha y cuenta regresiva.
+2. Ruta semanal y progreso personal.
 3. Semana actual y contenido programado.
 4. Estado de visto y porcentaje de avance.
 5. Metadatos secundarios: tipo, fase, año y rango de fechas.
 
-La ruta de preparación se presenta como una lista cronológica de tarjetas. Cada tarjeta muestra cápsulas textuales para tipo y estado inicial, la fecha con el elemento semántico `time`, y una frase breve de relevancia. Una fecha atrasada añade la etiqueta textual **Atrasada** además de su acento de color, para que el significado no dependa del color.
+El hero de estreno es el primer bloque de la página. Su imagen decorativa local queda debajo de un degradado oscuro para preservar legibilidad, y sus cuatro unidades temporales se agrupan en celdas delimitadas; no depende de una imagen remota. La ruta de preparación se presenta como una lista cronológica de tarjetas. Cada tarjeta muestra cápsulas textuales para tipo y estado inicial, la fecha con el elemento semántico `time`, y una frase breve de relevancia. Una fecha atrasada añade la etiqueta textual **Atrasada** además de su acento de color, para que el significado no dependa del color.
 
 Cada tarjeta debe comunicar su estado sin depender únicamente del color. Los acentos pueden diferenciar estrenos, tipos o fases, pero siempre con texto, icono o etiqueta equivalente.
 

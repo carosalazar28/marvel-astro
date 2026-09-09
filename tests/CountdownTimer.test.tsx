@@ -51,6 +51,19 @@ describe('CountdownTimer', () => {
     expect(screen.getAllByText('3')).toHaveLength(2);
   });
 
+  it('muestra un recurso visual local decorativo detrás del hero activo', () => {
+    render(
+      <CountdownTimer
+        title="Avengers: Doomsday"
+        targetDate="2026-12-18T00:00:00.000Z"
+        imageSrc="/assets/premiere-hero-v1.png"
+        isCurrent
+      />,
+    );
+
+    expect(screen.getByRole('presentation').getAttribute('src')).toBe('/assets/premiere-hero-v1.png');
+  });
+
   it('muestra una vista previa sin iniciar un temporizador para tarjetas no activas', () => {
     const setIntervalSpy = vi.spyOn(globalThis, 'setInterval');
 

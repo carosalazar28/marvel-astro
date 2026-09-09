@@ -2,7 +2,7 @@
 
 ## Página principal
 
-La ruta principal se presenta como **Plan de Cine MCU**: un encabezado estático explica que une la cuenta regresiva, la ruta de preparación y el progreso personal. Reúne las áreas de meta de estreno y plan de visionado. El contenido estático se compone en Astro; las áreas que cambian por interacción se hidratan como islas React.
+La ruta principal abre con la meta de estreno: un hero visual local con rótulo, título, subtítulo, fecha y cuenta regresiva de cuatro unidades. Después reúne la ruta de preparación y el progreso personal. El contenido estático se compone en Astro; las áreas que cambian por interacción se hidratan como islas React.
 
 ## Comportamientos requeridos de v1
 
@@ -15,7 +15,7 @@ La ruta principal se presenta como **Plan de Cine MCU**: un encabezado estático
 - En móvil, una navegación adhesiva alterna las vistas de ruta y calendario sin borrar su estado. Desde 768 px, ambas vistas se organizan en dos columnas; los controles principales preservan áreas táctiles de al menos 44 px.
 - El progreso persiste en el dispositivo y una entrada local inválida no rompe la interfaz.
 - El resumen de preparación recibe una ruta mediante `id` y `status`, elimina identificadores vacíos o duplicados al calcular y muestra porcentaje, completados, pendientes y un mensaje explícito cuando toda la ruta está vista. No posee catálogo ni persistencia.
-- La cuenta regresiva se renderiza con ceros durante SSR e hidratación; al montar en el navegador calcula de inmediato el tiempo real y después se actualiza cada segundo. Así el reloj del servidor y el cliente no producen HTML distinto durante la hidratación.
+- La cuenta regresiva se renderiza con ceros durante SSR e hidratación; al montar en el navegador calcula de inmediato el tiempo real y después se actualiza cada segundo. Así el reloj del servidor y el cliente no producen HTML distinto durante la hidratación. Si recibe un recurso local, lo presenta como fondo decorativo fuera del árbol accesible y conserva el texto como fuente de información.
 
 ## Fronteras de componentes
 

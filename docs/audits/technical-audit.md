@@ -34,6 +34,7 @@ Los cuatro hallazgos UI/UX no son duplicados: cubren, respectivamente, contenci�
 | Fuentes | [UX-003](./ui-ux-report.md#ux-003--el-hero-y-la-cuenta-regresiva-no-reproducen-la-jerarquía-cinematográfica-de-figma); [producto: UC-04 sin incidencia funcional](./product-report.md#uc-04--consultar-próximos-estrenos) |
 | Clasificación | **Defecto** |
 | Prioridad | **P1** |
+| Estado | **En remediación:** issue [#38](https://github.com/carosalazar28/marvel-astro/issues/38). |
 | Impacto | La pantalla no prioriza visualmente el estreno y su cuenta regresiva como el frame de referencia, lo que debilita la propuesta de valor de identificar la meta antes de planear la ruta. |
 | Riesgo técnico confirmado | La página renderiza una introducción editorial separada antes de la sección de estreno; `CountdownTimer` solo recibe título y fecha. El contrato de estreno documentado no incluye un recurso visual y el informe UI/UX confirmó que no se cargan imágenes. `DESIGN.md` documenta la jerarquía actual, por lo que la diferencia con Figma también deja una decisión visual sin alinear entre fuente de diseño y documentación versionada. |
 | Criterio de cierre | En los frames Figma móvil y escritorio, el estreno es el bloque dominante sin una introducción previa que lo desplace; muestra recurso visual local permitido, título, información secundaria compacta y cuatro unidades temporales delimitadas. `DESIGN.md` y `FRONTEND.md` describen el estado resultante sin introducir API externa. UC-04 sigue cubierto. |
