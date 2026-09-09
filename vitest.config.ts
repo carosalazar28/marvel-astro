@@ -15,6 +15,8 @@ export default defineConfig({
         'src/utils/progress/viewing-status.ts',
         'src/services/viewing-status-storage.ts',
         'src/hooks/useViewingStatus.ts',
+        'src/utils/readiness.ts',
+        'src/components/ReadinessSummary.tsx',
       ],
       thresholds: {
         branches: 100,

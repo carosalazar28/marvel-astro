@@ -8,4 +8,6 @@
 
 **Resultado:** el progreso permanece disponible al recargar en el mismo navegador. Cuando la interfaz de plan ofrezca reinicio, elimina todos los estados locales y vuelve a `Sin ver`.
 
-**Casos límite:** identificador vacío o inválido; sin ítems; almacenamiento vacío, inaccesible o con JSON corrupto; un `id` guardado que ya no pertenece al catálogo. La interfaz conserva su funcionamiento, omite datos no válidos y parte de progreso vacío si no puede recuperar el almacenamiento.
+**Resumen de preparación:** a partir de los ítems de la ruta, la interfaz muestra el porcentaje y las cantidades completadas y pendientes. Solo declara que la persona está lista para el estreno cuando existe al menos un ítem y todos están vistos.
+
+**Casos límite:** identificador vacío o inválido; sin ítems; almacenamiento vacío, inaccesible o con JSON corrupto; un `id` guardado que ya no pertenece al catálogo; estados desconocidos e identificadores repetidos. La interfaz conserva su funcionamiento, omite datos no válidos, cuenta una sola vez cada `id` estable y parte de progreso vacío si no puede recuperar el almacenamiento.
