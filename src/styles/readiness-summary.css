@@ -1,0 +1,59 @@
+.readiness-summary {
+	background: var(--surface-elevated, #1a1f3a);
+	border: 1px solid var(--border-color, #292d48);
+	border-radius: 1rem;
+	color: var(--text-primary);
+	padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.readiness-summary__header h2 {
+	font-family: var(--font-display);
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	margin: 0;
+}
+
+.readiness-summary__eyebrow {
+	color: var(--accent-color);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	margin: 0 0 0.5rem;
+	text-transform: uppercase;
+}
+
+.readiness-summary__content {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.readiness-summary__percentage {
+	color: var(--text-primary);
+	font-family: var(--font-mono);
+	font-size: clamp(2rem, 7vw, 3.5rem);
+	font-weight: 700;
+	margin: 0;
+}
+
+.readiness-summary__progress-group {
+	flex: 1;
+}
+
+.readiness-summary__progress {
+	accent-color: #52d69d;
+	height: 0.75rem;
+	width: 100%;
+}
+
+.readiness-summary__counts,
+.readiness-summary__message {
+	color: var(--text-secondary);
+	margin: 0.5rem 0 0;
+}
+
+.readiness-summary__message[role='status'] {
+	color: #93f0bf;
+	font-weight: 700;
+}

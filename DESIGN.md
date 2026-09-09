@@ -16,6 +16,8 @@ La identidad visual usa `#0D1020` como fondo, `#11152A` y `#1A1F3A` como superfi
 
 Cada tarjeta debe comunicar su estado sin depender únicamente del color. Los acentos pueden diferenciar estrenos, tipos o fases, pero siempre con texto, icono o etiqueta equivalente.
 
+El resumen de preparación muestra el porcentaje, la cantidad completada y pendiente, y un mensaje textual. Cuando no hay ruta comunica ese estado; al completar todos los elementos declara explícitamente que la persona está lista para el estreno.
+
 ## Responsive y accesibilidad básica
 
 - La experiencia debe funcionar desde 320 px hasta escritorio sin ocultar contenido esencial.

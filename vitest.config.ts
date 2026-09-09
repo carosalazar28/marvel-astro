@@ -12,6 +12,8 @@ export default defineConfig({
         'src/components/SliderCountdown.tsx',
         'src/utils/countdown-time.ts',
         'src/components/CountdownTimer.tsx',
+        'src/utils/readiness.ts',
+        'src/components/ReadinessSummary.tsx',
       ],
       thresholds: {
         branches: 100,
