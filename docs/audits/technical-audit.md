@@ -46,6 +46,7 @@ Los cuatro hallazgos UI/UX no son duplicados: cubren, respectivamente, contenci�
 | Fuentes | [UX-004](./ui-ux-report.md#ux-004--las-tarjetas-de-la-ruta-no-tienen-la-densidad-visual-ni-los-elementos-de-referencia); [producto: UC-01 y UC-02 sin incidencia funcional](./product-report.md#uc-01--consultar-el-plan-semanal) |
 | Clasificación | **Defecto** |
 | Prioridad | **P1** |
+| Estado | **En remediación:** issue [#39](https://github.com/carosalazar28/marvel-astro/issues/39). |
 | Impacto | La ruta central ocupa más espacio y no ofrece el reconocimiento rápido por miniatura, metadatos compactos y estado que muestra el diseño de referencia. |
 | Riesgo técnico confirmado | `PreparationRoute` recibe el contrato editorial validado actual, que no incluye recurso visual ni duración; el repositorio tampoco contiene recursos gráficos de las tarjetas. La implementación actual organiza tipo, estado, fecha, razón y acción verticalmente, por lo que no puede reproducir el patrón de Figma sin ampliar de forma explícita los datos locales y la presentación. |
 | Criterio de cierre | En móvil y escritorio, al menos una tarjeta por estado aplicable muestra recurso visual local, metadatos, badge textual de estado, fecha, razón y acción sin cortes con títulos o razones largas. Se preservan los controles de teclado, los estados `Sin ver → Viendo → Vista` y la ausencia de fuentes externas. |

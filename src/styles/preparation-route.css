@@ -27,7 +27,9 @@
 .preparation-route__validation, .preparation-route__empty { padding: 1rem; border-radius: 0.75rem; color: var(--text-secondary); background: var(--surface-color, #11152a); }
 .preparation-route__validation { border: 1px solid var(--border-color, #292d48); }
 .preparation-route__list { display: grid; gap: 1rem; padding: 0; margin: 0; list-style: none; }
-.preparation-card { padding: clamp(1.25rem, 3vw, 1.75rem); background: var(--surface-color, #11152a); border: 1px solid var(--border-color, #292d48); border-radius: 1rem; }
+.preparation-card { display: grid; grid-template-columns: 9rem minmax(0, 1fr); overflow: hidden; background: var(--surface-color, #11152a); border: 1px solid var(--border-color, #292d48); border-radius: 1rem; }
+.preparation-card__artwork { min-height: 12rem; background-size: 400% 200%; background-repeat: no-repeat; }
+.preparation-card__content { min-width: 0; padding: clamp(1.1rem, 3vw, 1.5rem); }
 .preparation-card__meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
 .preparation-card__meta span { padding: 0.25rem 0.6rem; border-radius: 999px; color: var(--text-secondary); background: var(--elevated-surface-color, #1a1f3a); font-size: 0.8rem; font-weight: 700; }
 .preparation-card__meta .preparation-card__overdue { color: #93f0bf; background: rgba(82, 214, 157, 0.12); }
@@ -36,3 +38,8 @@
 .preparation-card__date time { color: var(--text-primary); font-weight: 700; }
 .preparation-card__reason { margin: 0; color: var(--text-secondary); line-height: 1.55; }
 .preparation-card__reason strong { color: var(--text-primary); }
+
+@media (max-width: 40rem) {
+	.preparation-card { grid-template-columns: 6.5rem minmax(0, 1fr); }
+	.preparation-card__artwork { min-height: 100%; }
+}
