@@ -20,7 +20,7 @@ La ruta principal abre con la meta de estreno: un hero visual local con rótulo,
 ## Fronteras de componentes
 
 - Componentes de presentación reciben datos y callbacks; no leen directamente `localStorage` ni mutan JSON.
-- `PreparationTracker` es el contenedor interactivo: posee filtros, orden y progreso; deriva las listas visibles y estadísticas sin mutar sus props, y usa `useViewingStatus` como frontera con el navegador.
+- `PreparationTracker` es el contenedor interactivo: posee filtros, orden y progreso; deriva las listas visibles y estadísticas sin mutar sus props, usa `useViewingStatus` como frontera con el navegador y agrupa el resumen con la ruta en la columna izquierda del tracker de escritorio.
 - La capa de persistencia serializa exclusivamente un mapa de estados por `id` estable, tolera datos ausentes, JSON inválido, elementos que ya no existen y errores de acceso sin bloquear la interfaz.
 - `useViewingStatus` es la frontera React reutilizable para recuperar, avanzar y reiniciar el progreso; no renderiza la lista ni calcula métricas de preparación.
 - `ReadinessSummary` es una presentación reutilizable: deriva el avance con `getReadinessSummary` a partir de props tipadas y deja el catálogo, las transiciones y `localStorage` a su futuro contenedor.

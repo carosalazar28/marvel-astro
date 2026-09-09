@@ -74,5 +74,6 @@
 @media (min-width: 768px) {
 	.preparation-tracker__tabs { display: none; }
 	.preparation-tracker__content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+	.preparation-tracker__route { min-width: 0; }
 	.preparation-tracker__calendar .monthly-calendar { margin-top: 0; }
 }
