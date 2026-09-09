@@ -1,0 +1,18 @@
+.monthly-calendar { margin-top: clamp(3.5rem, 8vw, 6rem); padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--border-color, #292d48); border-radius: 1rem; background: var(--surface-color, #11152a); }
+.monthly-calendar__eyebrow { margin: 0 0 0.5rem; color: var(--accent-color); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.monthly-calendar h2, .monthly-calendar h3 { margin: 0; color: var(--text-primary); font-family: var(--font-display); }
+.monthly-calendar__navigation { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; margin: 1.5rem 0 1rem; }
+.monthly-calendar__navigation h3 { text-align: center; }
+.monthly-calendar__navigation button, .monthly-calendar__day { min-height: 2.5rem; border: 1px solid var(--border-color, #292d48); border-radius: 0.5rem; color: var(--text-primary); background: var(--elevated-surface-color, #1a1f3a); font: inherit; cursor: pointer; }
+.monthly-calendar__navigation button { width: 2.5rem; font-size: 1.25rem; }
+.monthly-calendar__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.35rem; }
+.monthly-calendar__weekday { padding: 0.35rem 0; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; text-align: center; }
+.monthly-calendar__day { display: grid; min-height: 4.5rem; padding: 0.35rem; text-align: left; }
+.monthly-calendar__day[data-current-month='false'] { opacity: 0.45; }
+.monthly-calendar__day[aria-pressed='true'] { border-color: var(--accent-color); box-shadow: 0 0 0 1px var(--accent-color); }
+.monthly-calendar__content-count { margin-top: auto; color: #93f0bf; font-size: 0.7rem; font-weight: 700; }
+.monthly-calendar__details, .monthly-calendar__upcoming { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color, #292d48); }
+.monthly-calendar__details p, .monthly-calendar__upcoming p, .monthly-calendar li { color: var(--text-secondary); line-height: 1.5; }
+.monthly-calendar__details ul, .monthly-calendar__upcoming ol { margin: 0.75rem 0 0; padding-left: 1.25rem; }
+.monthly-calendar__navigation button:focus-visible, .monthly-calendar__day:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+@media (max-width: 30rem) { .monthly-calendar { padding: 1rem; } .monthly-calendar__day { min-height: 3.75rem; font-size: 0.8rem; } .monthly-calendar__content-count { font-size: 0.6rem; } }

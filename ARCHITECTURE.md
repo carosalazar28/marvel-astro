@@ -42,4 +42,4 @@ No hay autenticación, backend, panel administrativo, integración de API, sincr
 
 ## Estado actual
 
-La página Astro carga la cuenta regresiva y un tracker React hidratado en cliente. El tracker recibe la ruta JSON ya validada, recupera el progreso local por `id`, deriva el resumen y filtra u ordena sin mutar el catálogo. El calendario mensual sigue pendiente de su historia de usuario.
+La página Astro carga la cuenta regresiva y un tracker React hidratado en cliente. El tracker recibe la ruta JSON ya validada, recupera el progreso local por `id`, deriva el resumen, filtra, ordena y entrega el mismo estado al calendario mensual sin mutar el catálogo. Las utilidades del calendario calculan meses y días en UTC para que una zona horaria no cambie una fecha programada.
