@@ -67,6 +67,7 @@ La evidencia vive en `docs/audits/`; el issue de auditoría solo resume el avanc
 
 - Mantén el shell y el contenido estático en Astro; aísla en React solamente los comportamientos que requieren estado del navegador.
 - Los estilos `scoped` de Astro no se propagan a los nodos de una isla React. Declara en la hoja de estilos de la isla cualquier invariante visual que necesite —por ejemplo, `box-sizing` para un elemento con ancho y padding— y cúbrela con una prueba de regresión cuando pueda afectar el layout.
+- Las imágenes procesadas importadas desde `src/assets/` exponen metadatos en el build de Astro. Cuando una isla React las use como URL, pasa explícitamente su propiedad `src` y cubre tanto ese caso como la cadena de URL de las pruebas.
 - Los ítems del calendario necesitan un identificador estable. El estado de visto nunca debe depender de la posición, la semana ni del título visible.
 - Los datos de catálogo y estrenos se editan manualmente en JSON y deben validarse antes de consumirse.
 - El acceso a `localStorage` debe ser seguro ante valores ausentes o corruptos y no debe ejecutarse durante renderizado de servidor.

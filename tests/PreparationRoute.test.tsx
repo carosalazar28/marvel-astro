@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import PreparationRoute from '../src/components/PreparationRoute';
+import PreparationRoute, { resolveAssetUrl } from '../src/components/PreparationRoute';
 import type { PreparationRouteItem } from '../src/utils/preparation-route';
 
 const items: PreparationRouteItem[] = [
@@ -26,6 +26,11 @@ const items: PreparationRouteItem[] = [
 ];
 
 describe('PreparationRoute', () => {
+  it('usa la URL de un recurso procesado por Astro para la miniatura local', () => {
+    expect(resolveAssetUrl({ src: '/_astro/preparation-artwork-v1.jpg' })).toBe('/_astro/preparation-artwork-v1.jpg');
+    expect(resolveAssetUrl('/assets/preparation-artwork-v1.jpg')).toBe('/assets/preparation-artwork-v1.jpg');
+  });
+
   it('muestra los metadatos, razón y alerta de retraso de cada contenido', () => {
     render(<PreparationRoute items={items} issues={[]} />);
 
@@ -36,7 +41,9 @@ describe('PreparationRoute', () => {
     expect(screen.getByText('Define el conflicto temporal.')).toBeTruthy();
     expect(screen.getByText('Atrasada')).toBeTruthy();
     expect(screen.getByRole('time', { name: 'Programada para 8 de septiembre de 2026' })).toBeTruthy();
-    expect(document.querySelectorAll('.preparation-card__artwork')).toHaveLength(2);
+    const artworks = document.querySelectorAll<HTMLElement>('.preparation-card__artwork');
+    expect(artworks).toHaveLength(2);
+    expect(artworks[0].style.backgroundImage).toContain('preparation-artwork-v1');
   });
 
   it('explica una ruta vacía y avisos de validación sin ocultar contenido válido', () => {

@@ -53,6 +53,8 @@ Los cuatro hallazgos UI/UX no son duplicados: cubren, respectivamente, contenci�
 | Criterio de cierre | En móvil y escritorio, al menos una tarjeta por estado aplicable muestra recurso visual local, metadatos, badge textual de estado, fecha, razón y acción sin cortes con títulos o razones largas. Se preservan los controles de teclado, los estados `Sin ver → Viendo → Vista` y la ausencia de fuentes externas. |
 | Unidad de issue sugerida | `feat(route): alinear tarjetas de preparación con Figma`. Debe declarar el contrato de datos visual local y validar sus entradas; no debe asumir servicios de imágenes, backend ni API. |
 
+**Verificación posterior:** el issue [#44](https://github.com/carosalazar28/marvel-astro/issues/44) corrige la URL de la hoja de imágenes procesada por Astro antes de considerar esta unidad cerrada.
+
 ### TA-004 — Reorganizar la composición desktop en el patrón de dos columnas de Figma
 
 | Campo | Detalle |
