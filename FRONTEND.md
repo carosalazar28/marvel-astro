@@ -7,7 +7,7 @@ La ruta principal abre con la meta de estreno: un hero visual local con rótulo,
 ## Comportamientos requeridos de v1
 
 - El carrusel permite consultar cada estreno próximo y muestra una cuenta regresiva hasta su fecha. En móvil muestra una sola tarjeta activa y coloca la navegación anterior/siguiente debajo de ella; en escritorio conserva las vistas previas laterales sin restar jerarquía al estreno activo.
-- La ruta de preparación muestra el contenido cronológico previo al estreno. Cada tarjeta informa una miniatura decorativa local, título, tipo, fecha programada, estado local visible (**Sin ver**, **Viendo** o **Vista**), razón de relevancia y etiqueta textual **Atrasada** cuando su fecha ya pasó. El control de cada tarjeta avanza de forma segura el estado y se deshabilita al llegar a **Vista**.
+- La ruta de preparación muestra el contenido cronológico previo al estreno. Cada tarjeta informa una miniatura decorativa local compacta, alineada en la parte superior y sin estirarse a la altura total de la tarjeta, título, tipo, fecha programada, estado local visible (**Sin ver**, **Viendo** o **Vista**), razón de relevancia y etiqueta textual **Atrasada** cuando su fecha ya pasó. El control de cada tarjeta avanza de forma segura el estado y se deshabilita al llegar a **Vista**.
 - El calendario mezcla películas y series en una única secuencia semanal.
 - La persona usuaria puede avanzar cada ítem de `Sin ver` a `Viendo` y finalmente `Vista`; un ítem ya visto no retrocede por una acción repetida. Puede reiniciar su progreso local cuando la interfaz que muestra el plan lo exponga.
 - Puede filtrar por estado o tipo, y ordenar por fecha programada o título. Los filtros no cambian el resumen ni el contenido JSON.
