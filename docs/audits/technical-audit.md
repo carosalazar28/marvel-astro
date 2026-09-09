@@ -21,6 +21,7 @@ Los cuatro hallazgos UI/UX no son duplicados: cubren, respectivamente, contenci�
 | Fuentes | [UX-002](./ui-ux-report.md#ux-002--el-hero-desborda-horizontalmente-en-el-frame-móvil); [producto: UC-04 sin incidencia funcional](./product-report.md#uc-04--consultar-próximos-estrenos) |
 | Clasificación | **Defecto** |
 | Prioridad | **P1** |
+| Estado | **En remediación:** issue [#36](https://github.com/carosalazar28/marvel-astro/issues/36). |
 | Impacto | En 390 px el contenido de la meta de estreno, primer punto de lectura del producto, exige desplazamiento horizontal y puede quedar recortado. |
 | Riesgo técnico confirmado | `.countdown` declara `width: 100%` y padding horizontal. El `box-sizing: border-box` está definido en el estilo scoped de `Layout.astro`; los nodos renderizados por la isla React no reciben el atributo de scope, por lo que el ancho de contenido y el padding se suman. La medición de UI/UX (`clientWidth` 375 px frente a `scrollWidth` 455 px) confirma el efecto observable. |
 | Criterio de cierre | A 390 px y 320 px, el documento no tiene desplazamiento horizontal (`scrollWidth <= clientWidth`) y título, fecha, cuatro valores y etiquetas del contador están completos. Se conserva el flujo UC-04 y los controles móviles mantienen sus áreas mínimas. |
