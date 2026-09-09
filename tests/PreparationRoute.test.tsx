@@ -36,6 +36,7 @@ describe('PreparationRoute', () => {
     expect(screen.getByText('Define el conflicto temporal.')).toBeTruthy();
     expect(screen.getByText('Atrasada')).toBeTruthy();
     expect(screen.getByRole('time', { name: 'Programada para 8 de septiembre de 2026' })).toBeTruthy();
+    expect(document.querySelectorAll('.preparation-card__artwork')).toHaveLength(2);
   });
 
   it('explica una ruta vacía y avisos de validación sin ocultar contenido válido', () => {

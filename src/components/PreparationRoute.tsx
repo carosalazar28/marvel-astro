@@ -1,5 +1,6 @@
 import { formatScheduledDate, type PreparationRouteItem } from '../utils/preparation-route';
 import type { ViewingStatus } from '../utils/progress/viewing-status';
+import artworkSheet from '../assets/preparation-artwork-v1.jpg';
 import '../styles/preparation-route.css';
 
 interface PreparationRouteProps {
@@ -22,6 +23,17 @@ const statusLabel: Readonly<Record<ViewingStatus, string>> = {
   watched: 'Vista',
 };
 
+const artworkPosition: Readonly<Record<string, string>> = {
+  'iron-man': '0% 0%',
+  'captain-america-first-avenger': '33.333% 0%',
+  'the-avengers': '66.667% 0%',
+  'avengers-infinity-war': '100% 0%',
+  'avengers-endgame': '0% 100%',
+  'loki-season-one': '33.333% 100%',
+  'doctor-strange-multiverse-of-madness': '66.667% 100%',
+  'fantastic-four-first-steps': '100% 100%',
+};
+
 function getNextActionLabel(status: ViewingStatus): string {
   if (status === 'unseen') {
     return 'Marcar como viendo';
@@ -39,8 +51,12 @@ interface PreparationCardProps {
 }
 
 function PreparationCard({ item, status, isInteractive, isHydrated, onAdvance }: PreparationCardProps) {
+  const artworkStyle = { backgroundImage: `url(${artworkSheet})`, backgroundPosition: artworkPosition[item.id] ?? '0% 0%' };
+
   return (
     <article className="preparation-card">
+      <div className="preparation-card__artwork" aria-hidden="true" style={artworkStyle} />
+      <div className="preparation-card__content">
       <div className="preparation-card__meta">
         <span>{typeLabel[item.type]}</span>
         <span aria-label={`Estado: ${statusLabel[status]}`}>{statusLabel[status]}</span>
@@ -62,6 +78,7 @@ function PreparationCard({ item, status, isInteractive, isHydrated, onAdvance }:
           {getNextActionLabel(status)}
         </button>
       ) : null}
+      </div>
     </article>
   );
 }
