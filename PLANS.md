@@ -4,7 +4,8 @@
 
 - Implementado: layout Astro, carrusel de cuentas regresivas y hook de cuenta regresiva.
 - Parcial: componente de películas con marcado local, estadísticas, filtro y orden; aún no se muestra en la página.
-- Pendiente: modelo de datos unificado, soporte de series, filtros por tipo/fase, persistencia por `id` estable, manejo de datos locales corruptos, pruebas y cobertura.
+- Implementado: dominio reutilizable para transicionar `Sin ver → Viendo → Vista`, persistencia segura por `id` estable y reinicio local; todavía no se conecta a la lista de películas.
+- Pendiente: modelo de datos unificado, soporte de series, filtros por tipo/fase y conexión de progreso con la interfaz del plan.
 
 ## Hito 0 — Calidad habilitante
 
@@ -16,7 +17,7 @@ Definir el esquema JSON unificado con `id` estable, películas y series. Conecta
 
 ## Hito 2 — Progreso personal
 
-Persistir ítems vistos por `id`, tolerar datos locales inválidos, calcular estadísticas y permitir filtros por estado, tipo y fase, más orden.
+Persistir estados por `id`, tolerar datos locales inválidos, calcular estadísticas y permitir filtros por estado, tipo y fase, más orden. La frontera de transición y persistencia está lista; resta conectarla al catálogo y a la interfaz.
 
 ## Hito 3 — Pulido de experiencia
 
