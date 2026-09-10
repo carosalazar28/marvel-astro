@@ -83,6 +83,24 @@ describe('PreparationTracker', () => {
     expect(within(container).getByText('Iron Man')).toBeTruthy();
   });
 
+  it('conserva las películas vistas del calendario editorial al reiniciar el progreso local', async () => {
+    const user = userEvent.setup();
+    window.localStorage.setItem('mcu-viewing-statuses-v1', JSON.stringify({ 'iron-man': 'watching' }));
+    const editorialItems: PreparationRouteItem[] = [
+      { ...items[0], initialStatus: 'watched' },
+      items[1],
+    ];
+    render(<PreparationTracker items={editorialItems} issues={[]} />);
+
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Reiniciar progreso local' }).disabled).toBe(false));
+    expect(screen.getByText('0 completadas · 2 pendientes')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Viendo' })).toBeTruthy();
+
+    await user.click(screen.getByRole('button', { name: 'Reiniciar progreso local' }));
+
+    expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy();
+  });
+
   it('mantiene una explicación específica cuando la ruta editorial está vacía', () => {
     render(<PreparationTracker items={[]} issues={[]} />);
 

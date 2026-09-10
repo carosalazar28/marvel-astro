@@ -2,7 +2,7 @@
 
 ## Persona y problema
 
-La aplicación es para una persona que desea completar, a un ritmo de un contenido por semana, un recorrido del MCU sin llevar una lista manual ni perder la referencia de próximos estrenos.
+La aplicación es para una persona que desea completar un recorrido del MCU sin llevar una lista manual ni perder la referencia de próximos estrenos. El calendario editorial usa el sábado para una película y, cuando hay dos programadas, sábado y domingo.
 
 ## Propuesta de valor
 
@@ -16,7 +16,7 @@ La persona puede identificar qué contenido le corresponde ver antes del estreno
 
 - Uso personal en un navegador; no existen cuentas ni colaboración.
 - Catálogo y fechas se mantienen manualmente en JSON dentro del repositorio.
-- Una película o una serie completa ocupa una semana.
+- El ritmo editorial asigna una película al sábado y, en semanas de doble programación, una segunda al domingo. La fecha es parte del plan, no la fecha real en que se vio.
 - No se incluyen fichas detalladas, tráilers, recordatorios, administración de contenido, APIs externas ni sincronización.
 
 Antes de aprobar un cambio, valida que refuerce esta propuesta o que la documentación declare explícitamente una modificación de producto.

@@ -33,7 +33,7 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 
 Cada ítem del calendario debe incluir `id`, `title`, `type` (`movie` o `series`), `week`, `dateRange`, `startDate`, `endDate`, `year` y `phase`. `id` es inmutable y es la única clave permitida para el progreso local.
 
-La ruta editorial de `src/data/preparation-route.json` incluye `id`, `title`, `type` (`movie` o `series`), `scheduledDate` (`YYYY-MM-DD`), `initialStatus` (`unwatched`) y `reason`. `parsePreparationRoute` valida este contrato antes de que Astro lo entregue a la interfaz: descarta entradas inválidas o con identificadores duplicados, conserva las válidas ordenadas por fecha y comunica los problemas sin detener la página. Calcula `isOverdue` desde la fecha programada y la fecha actual; no escribe progreso.
+La ruta editorial de `src/data/preparation-route.json` incluye `id`, `title`, `type` (`movie` o `series`), `scheduledDate` (`YYYY-MM-DD`), `initialStatus` (`unwatched` o `watched`) y `reason`. `parsePreparationRoute` valida este contrato antes de que Astro lo entregue a la interfaz: descarta entradas inválidas o con identificadores duplicados, conserva las válidas ordenadas por fecha y comunica los problemas sin detener la página. Calcula `isOverdue` solo para contenido pendiente cuya fecha ya pasó; no escribe progreso. El estado inicial editorial actúa como base y el mapa local por `id` lo puede reemplazar; al borrar el mapa local, reaparece esa base editorial.
 
 Los estrenos deben incluir `id`, `title`, `targetDate` y, opcionalmente, un tema visual permitido. Las fechas se almacenan en ISO 8601.
 

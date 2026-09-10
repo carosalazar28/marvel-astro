@@ -97,7 +97,7 @@ export default function PreparationRoute({ items, issues, getStatus, onAdvance, 
       <div className="preparation-route__heading">
         <p className="preparation-route__eyebrow">Plan de visionado</p>
         <h2 id="preparation-route-title">Tu ruta de preparación</h2>
-        <p>Una película o serie completa por semana para llegar lista al estreno.</p>
+        <p>Una película cada sábado y, cuando el plan lo indica, otra el domingo para llegar lista al estreno.</p>
       </div>
 
       {issues.length > 0 ? (
