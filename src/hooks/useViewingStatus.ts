@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import {
   advanceViewingStatus,
   createEmptyViewingStatuses,
+  createUnseenViewingStatuses,
   getViewingStatus,
   resetViewingStatuses,
   type ViewingStatus,
@@ -20,6 +21,7 @@ export interface ViewingStatusController {
   getStatus(contentId: unknown): ViewingStatus;
   advance(contentId: unknown): void;
   reset(): void;
+  resetCalendar(): void;
 }
 
 interface UseViewingStatusOptions {
@@ -64,12 +66,19 @@ export function useViewingStatus(
     clearViewingStatuses(storage);
   }, [storage]);
 
+  const resetCalendar = useCallback(() => {
+    const nextStatuses = createUnseenViewingStatuses(knownContentIds);
+
+    setStatuses(nextStatuses);
+    writeViewingStatuses(storage, nextStatuses);
+  }, [knownContentIds, storage]);
+
   const getStatus = useCallback(
     (contentId: unknown) => getViewingStatus(statuses, contentId),
     [statuses],
   );
 
-  return { statuses, isHydrated, getStatus, advance, reset };
+  return { statuses, isHydrated, getStatus, advance, reset, resetCalendar };
 }
 
 function getBrowserStorage(): StorageLike | null {

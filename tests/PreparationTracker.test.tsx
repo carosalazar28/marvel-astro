@@ -101,6 +101,27 @@ describe('PreparationTracker', () => {
     expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy();
   });
 
+  it('reinicia el calendario completo a sin ver y conserva esa anulación al recargar', async () => {
+    const user = userEvent.setup();
+    const editorialItems: PreparationRouteItem[] = [
+      { ...items[0], initialStatus: 'watched' },
+      items[1],
+    ];
+    const { unmount } = render(<PreparationTracker items={editorialItems} issues={[]} />);
+
+    await waitFor(() => expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy());
+    await user.click(screen.getByRole('button', { name: 'Reiniciar calendario completo' }));
+
+    expect(screen.getByText('0 completadas · 2 pendientes')).toBeTruthy();
+    expect(window.localStorage.getItem('mcu-viewing-statuses-v1')).toBe(
+      JSON.stringify({ 'iron-man': 'unseen', loki: 'unseen' }),
+    );
+
+    unmount();
+    render(<PreparationTracker items={editorialItems} issues={[]} />);
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Sin ver' })).toBeTruthy());
+  });
+
   it('mantiene una explicación específica cuando la ruta editorial está vacía', () => {
     render(<PreparationTracker items={[]} issues={[]} />);
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   advanceViewingStatus,
   createEmptyViewingStatuses,
+  createUnseenViewingStatuses,
   getViewingStatus,
   isStableContentId,
   isViewingStatus,
@@ -46,5 +47,12 @@ describe('viewing status domain', () => {
     expect(createEmptyViewingStatuses()).toEqual({});
     expect(resetViewingStatuses(statuses)).toEqual({});
     expect(statuses).toEqual({ 'black-panther': 'watched' });
+  });
+
+  it('crea una anulación local no vista para cada id estable del calendario', () => {
+    expect(createUnseenViewingStatuses(['iron-man', '', 'iron-man', 'thor', 42])).toEqual({
+      'iron-man': 'unseen',
+      thor: 'unseen',
+    });
   });
 });

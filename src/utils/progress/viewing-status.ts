@@ -16,6 +16,22 @@ export function createEmptyViewingStatuses(): ViewingStatuses {
   return {};
 }
 
+/**
+ * Crea una anulación local explícita para volver todo el calendario a
+ * `unseen`, incluso si el contenido editorial inicia como `watched`.
+ */
+export function createUnseenViewingStatuses(contentIds: readonly unknown[]): ViewingStatuses {
+  const statuses: Record<string, ViewingStatus> = {};
+
+  contentIds.forEach((contentId) => {
+    if (isStableContentId(contentId)) {
+      statuses[contentId] = 'unseen';
+    }
+  });
+
+  return statuses;
+}
+
 /** Evita usar claves vacías o valores no textuales para el progreso local. */
 export function isStableContentId(value: unknown): value is string {
   return typeof value === 'string' && value.trim().length > 0;
