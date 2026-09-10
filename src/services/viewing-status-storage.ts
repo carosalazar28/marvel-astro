@@ -58,20 +58,6 @@ export function writeViewingStatuses(
   }
 }
 
-/** Elimina el progreso persistido al reiniciar el plan. */
-export function clearViewingStatuses(storage: StorageLike | null | undefined): boolean {
-  if (!storage) {
-    return false;
-  }
-
-  try {
-    storage.removeItem(VIEWING_STATUS_STORAGE_KEY);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 function sanitizeViewingStatuses(value: unknown, knownContentIds: readonly string[]): ViewingStatuses {
   if (!isRecord(value)) {
     return createEmptyViewingStatuses();

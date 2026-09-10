@@ -67,38 +67,44 @@ describe('PreparationTracker', () => {
     expect(screen.getByText('No hay contenido que coincida con los filtros seleccionados.')).toBeTruthy();
   });
 
-  it('reinicia únicamente el progreso local y conserva la ruta visible', async () => {
+  it('reinicia el calendario completo y conserva la ruta visible', async () => {
     window.localStorage.setItem('mcu-viewing-statuses-v1', JSON.stringify({ 'iron-man': 'watched' }));
     const user = userEvent.setup();
     const { container } = render(<PreparationTracker items={items} issues={['Entrada editorial inválida']} />);
 
-    await waitFor(() => expect(screen.getByRole('button', { name: 'Reiniciar progreso local' }).disabled).toBe(false));
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Reiniciar calendario completo' }).disabled).toBe(false));
+    expect(screen.queryByRole('button', { name: 'Reiniciar progreso local' })).toBeNull();
     expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy();
     expect(screen.getByRole('alert')).toBeTruthy();
 
-    await user.click(screen.getByRole('button', { name: 'Reiniciar progreso local' }));
+    await user.click(screen.getByRole('button', { name: 'Reiniciar calendario completo' }));
 
     expect(screen.getByText('0 completadas · 2 pendientes')).toBeTruthy();
-    expect(window.localStorage.getItem('mcu-viewing-statuses-v1')).toBeNull();
+    expect(window.localStorage.getItem('mcu-viewing-statuses-v1')).toBe(
+      JSON.stringify({ 'iron-man': 'unseen', loki: 'unseen' }),
+    );
     expect(within(container).getByText('Iron Man')).toBeTruthy();
   });
 
-  it('conserva las películas vistas del calendario editorial al reiniciar el progreso local', async () => {
+  it('reinicia el calendario completo a sin ver y conserva esa anulación al recargar', async () => {
     const user = userEvent.setup();
-    window.localStorage.setItem('mcu-viewing-statuses-v1', JSON.stringify({ 'iron-man': 'watching' }));
     const editorialItems: PreparationRouteItem[] = [
       { ...items[0], initialStatus: 'watched' },
       items[1],
     ];
-    render(<PreparationTracker items={editorialItems} issues={[]} />);
+    const { unmount } = render(<PreparationTracker items={editorialItems} issues={[]} />);
 
-    await waitFor(() => expect(screen.getByRole('button', { name: 'Reiniciar progreso local' }).disabled).toBe(false));
+    await waitFor(() => expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy());
+    await user.click(screen.getByRole('button', { name: 'Reiniciar calendario completo' }));
+
     expect(screen.getByText('0 completadas · 2 pendientes')).toBeTruthy();
-    expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Viendo' })).toBeTruthy();
+    expect(window.localStorage.getItem('mcu-viewing-statuses-v1')).toBe(
+      JSON.stringify({ 'iron-man': 'unseen', loki: 'unseen' }),
+    );
 
-    await user.click(screen.getByRole('button', { name: 'Reiniciar progreso local' }));
-
-    expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy();
+    unmount();
+    render(<PreparationTracker items={editorialItems} issues={[]} />);
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Sin ver' })).toBeTruthy());
   });
 
   it('mantiene una explicación específica cuando la ruta editorial está vacía', () => {

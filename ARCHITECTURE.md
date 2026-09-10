@@ -16,7 +16,7 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 - **React** maneja el carrusel de estrenos, el calendario, filtros, orden y marcado de contenido visto.
 - **JSON en `src/data/`** es la fuente de verdad de catálogo, ruta de preparación y estrenos. Se edita manualmente y se versiona junto al código.
 - **Recursos de `src/assets/`** contienen las imágenes locales procesadas por Astro. El hero del estreno usa un recurso original versionado; no solicita imágenes ni metadatos a servicios externos durante la ejecución.
-- **`localStorage`** guarda un mapa versionado de estados de visionado por `id` estable (`watching` o `watched`). La ausencia de una entrada significa `unseen`. No es una fuente de catálogo ni un mecanismo de sincronización.
+- **`localStorage`** guarda un mapa versionado de estados de visionado por `id` estable (`unseen`, `watching` o `watched`). La ausencia de una entrada aplica el estado editorial; una entrada `unseen` permite que el reinicio completo anule localmente una película editorial marcada como vista. No es una fuente de catálogo ni un mecanismo de sincronización.
 
 ## Organización de código
 
@@ -33,7 +33,7 @@ JSON versionado ──> página Astro ──> islas React ──> interfaz
 
 Cada ítem del calendario debe incluir `id`, `title`, `type` (`movie` o `series`), `week`, `dateRange`, `startDate`, `endDate`, `year` y `phase`. `id` es inmutable y es la única clave permitida para el progreso local.
 
-La ruta editorial de `src/data/preparation-route.json` incluye `id`, `title`, `type` (`movie` o `series`), `scheduledDate` (`YYYY-MM-DD`), `initialStatus` (`unwatched` o `watched`) y `reason`. `parsePreparationRoute` valida este contrato antes de que Astro lo entregue a la interfaz: descarta entradas inválidas o con identificadores duplicados, conserva las válidas ordenadas por fecha y comunica los problemas sin detener la página. Calcula `isOverdue` solo para contenido pendiente cuya fecha ya pasó; no escribe progreso. El estado inicial editorial actúa como base y el mapa local por `id` lo puede reemplazar; al borrar el mapa local, reaparece esa base editorial.
+La ruta editorial de `src/data/preparation-route.json` incluye `id`, `title`, `type` (`movie` o `series`), `scheduledDate` (`YYYY-MM-DD`), `initialStatus` (`unwatched` o `watched`) y `reason`. `parsePreparationRoute` valida este contrato antes de que Astro lo entregue a la interfaz: descarta entradas inválidas o con identificadores duplicados, conserva las válidas ordenadas por fecha y comunica los problemas sin detener la página. Calcula `isOverdue` solo para contenido pendiente cuya fecha ya pasó; no escribe progreso. El estado inicial editorial actúa como base y el mapa local por `id` lo puede reemplazar. La única acción de reinicio persiste `unseen` para todos los ids conocidos, sin editar el JSON.
 
 Los estrenos deben incluir `id`, `title`, `targetDate` y, opcionalmente, un tema visual permitido. Las fechas se almacenan en ISO 8601.
 

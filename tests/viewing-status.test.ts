@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest';
 import {
   advanceViewingStatus,
   createEmptyViewingStatuses,
+  createUnseenViewingStatuses,
   getViewingStatus,
   isStableContentId,
   isViewingStatus,
-  resetViewingStatuses,
 } from '../src/utils/progress/viewing-status';
 
 describe('viewing status domain', () => {
@@ -40,11 +40,10 @@ describe('viewing status domain', () => {
     expect(isViewingStatus('paused')).toBe(false);
   });
 
-  it('resets all saved statuses without mutating the prior state', () => {
-    const statuses = { 'black-panther': 'watched' as const };
-
-    expect(createEmptyViewingStatuses()).toEqual({});
-    expect(resetViewingStatuses(statuses)).toEqual({});
-    expect(statuses).toEqual({ 'black-panther': 'watched' });
+  it('crea una anulación local no vista para cada id estable del calendario', () => {
+    expect(createUnseenViewingStatuses(['iron-man', '', 'iron-man', 'thor', 42])).toEqual({
+      'iron-man': 'unseen',
+      thor: 'unseen',
+    });
   });
 });
