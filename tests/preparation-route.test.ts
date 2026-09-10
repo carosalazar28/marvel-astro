@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import preparationRoute from '../src/data/preparation-route.json';
 import { parsePreparationRoute } from '../src/utils/preparation-route';
 
 const now = new Date('2026-09-09T12:00:00.000Z');
@@ -30,6 +31,31 @@ describe('parsePreparationRoute', () => {
     expect(result.items[0]?.isOverdue).toBe(true);
   });
 
+  it('conserva como vista una película marcada en el calendario editorial', () => {
+    const result = parsePreparationRoute([
+      { ...validItem, id: 'iron-man', initialStatus: 'watched' },
+    ], now);
+
+    expect(result.issues).toEqual([]);
+    expect(result.items[0]).toMatchObject({ id: 'iron-man', initialStatus: 'watched', isOverdue: false });
+  });
+
+  it('valida el calendario Marvel 2026 completo y sus estados editoriales', () => {
+    const result = parsePreparationRoute(preparationRoute, now);
+
+    expect(result.issues).toEqual([]);
+    expect(result.items).toHaveLength(40);
+    expect(result.items.filter((item) => item.initialStatus === 'watched')).toHaveLength(14);
+    expect(result.items.map((item) => item.scheduledDate)).toEqual([...result.items]
+      .map((item) => item.scheduledDate)
+      .sort());
+    expect(result.items).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: 'iron-man', scheduledDate: '2026-04-04', initialStatus: 'watched' }),
+      expect.objectContaining({ id: 'x-men', scheduledDate: '2026-09-27', initialStatus: 'unwatched' }),
+      expect.objectContaining({ id: 'spider-man-brand-new-day', scheduledDate: '2026-12-13', initialStatus: 'unwatched' }),
+    ]));
+  });
+
   it('acepta una ruta vacía', () => {
     expect(parsePreparationRoute([], now)).toEqual({ items: [], issues: [] });
   });
@@ -39,7 +65,7 @@ describe('parsePreparationRoute', () => {
       { ...validItem, id: '', scheduledDate: 'fecha-inválida' },
       { ...validItem, id: 'captain-america-first-avenger' },
       { ...validItem, id: 'captain-america-first-avenger' },
-      { ...validItem, id: 'sin-estado', initialStatus: 'watched' },
+      { ...validItem, id: 'sin-estado', initialStatus: 'watching' },
       { ...validItem, id: 'tipo-invalido', type: 'short' },
       { ...validItem, id: 'fecha-invalida', scheduledDate: '2026-02-30' },
       { ...validItem, id: 'formato-invalido', scheduledDate: 'septiembre' },

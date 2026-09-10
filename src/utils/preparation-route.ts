@@ -1,5 +1,5 @@
 export type ContentType = 'movie' | 'series';
-export type InitialStatus = 'unwatched';
+export type InitialStatus = 'unwatched' | 'watched';
 
 export interface PreparationRouteItem {
   id: string;
@@ -57,7 +57,7 @@ export function parsePreparationRoute(value: unknown, now: Date): PreparationRou
       return;
     }
 
-    if (entry.initialStatus !== 'unwatched') {
+    if (!isInitialStatus(entry.initialStatus)) {
       issues.push(`La entrada ${position} tiene un estado inicial inválido.`);
       return;
     }
@@ -75,7 +75,7 @@ export function parsePreparationRoute(value: unknown, now: Date): PreparationRou
       scheduledDate: entry.scheduledDate,
       initialStatus: entry.initialStatus,
       reason: entry.reason,
-      isOverdue: isPastScheduledDate(entry.scheduledDate, now),
+      isOverdue: entry.initialStatus === 'unwatched' && isPastScheduledDate(entry.scheduledDate, now),
     });
   });
 
@@ -101,6 +101,10 @@ function isNonEmptyString(value: unknown): value is string {
 
 function isContentType(value: unknown): value is ContentType {
   return value === 'movie' || value === 'series';
+}
+
+function isInitialStatus(value: unknown): value is InitialStatus {
+  return value === 'unwatched' || value === 'watched';
 }
 
 function isIsoDate(value: unknown): value is string {

@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useViewingStatus } from '../hooks/useViewingStatus';
 import type { PreparationRouteItem } from '../utils/preparation-route';
+import { getViewingStatus, type ViewingStatus } from '../utils/progress/viewing-status';
 import {
   getVisiblePreparationItems,
   parsePreparationFilter,
@@ -28,14 +29,33 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
   const [sort, setSort] = useState<PreparationSort>('scheduled-date');
   const [activeView, setActiveView] = useState<'route' | 'calendar'>('route');
   const knownContentIds = useMemo(() => items.map((item) => item.id), [items]);
-  const { statuses, isHydrated, getStatus, advance, reset } = useViewingStatus(knownContentIds);
+  const { statuses, isHydrated, advance, reset } = useViewingStatus(knownContentIds);
+  const editorialStatuses = useMemo(() => {
+    const nextStatuses: Record<string, ViewingStatus> = {};
+
+    items.forEach((item) => {
+      if (item.initialStatus === 'watched') {
+        nextStatuses[item.id] = 'watched';
+      }
+    });
+
+    return nextStatuses;
+  }, [items]);
+  const effectiveStatuses = useMemo(
+    () => ({ ...editorialStatuses, ...statuses }),
+    [editorialStatuses, statuses],
+  );
+  const getEffectiveStatus = useCallback(
+    (contentId: string) => getViewingStatus(effectiveStatuses, contentId),
+    [effectiveStatuses],
+  );
   const visibleItems = useMemo(
-    () => getVisiblePreparationItems(items, statuses, filter, sort),
-    [filter, items, sort, statuses],
+    () => getVisiblePreparationItems(items, effectiveStatuses, filter, sort),
+    [effectiveStatuses, filter, items, sort],
   );
   const readinessItems = useMemo(
-    () => items.map((item) => ({ id: item.id, status: getStatus(item.id) })),
-    [getStatus, items],
+    () => items.map((item) => ({ id: item.id, status: getEffectiveStatus(item.id) })),
+    [getEffectiveStatus, items],
   );
 
   return (
@@ -75,14 +95,14 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
       <PreparationRoute
         items={visibleItems}
         issues={issues}
-        getStatus={getStatus}
+        getStatus={getEffectiveStatus}
         onAdvance={advance}
         isHydrated={isHydrated}
         emptyMessage={items.length > 0 ? 'No hay contenido que coincida con los filtros seleccionados.' : undefined}
       />
       </div>
       <div className="preparation-tracker__calendar">
-      <MonthlyCalendar items={items} getStatus={getStatus} />
+      <MonthlyCalendar items={items} getStatus={getEffectiveStatus} />
       </div>
       </div>
     </section>

@@ -1,66 +1,42 @@
 [
-  {
-    "id": "iron-man",
-    "title": "Iron Man",
-    "type": "movie",
-    "scheduledDate": "2026-10-28",
-    "initialStatus": "unwatched",
-    "reason": "Inicia el MCU y presenta a Tony Stark, una pieza central de los Vengadores."
-  },
-  {
-    "id": "captain-america-first-avenger",
-    "title": "Capitán América: El primer vengador",
-    "type": "movie",
-    "scheduledDate": "2026-11-04",
-    "initialStatus": "unwatched",
-    "reason": "Explica el origen de Steve Rogers y el legado que une al equipo."
-  },
-  {
-    "id": "the-avengers",
-    "title": "The Avengers",
-    "type": "movie",
-    "scheduledDate": "2026-11-11",
-    "initialStatus": "unwatched",
-    "reason": "Muestra cómo se forma el equipo original de los Vengadores."
-  },
-  {
-    "id": "avengers-infinity-war",
-    "title": "Avengers: Infinity War",
-    "type": "movie",
-    "scheduledDate": "2026-11-18",
-    "initialStatus": "unwatched",
-    "reason": "Sitúa el conflicto cósmico y las consecuencias para los héroes."
-  },
-  {
-    "id": "avengers-endgame",
-    "title": "Avengers: Endgame",
-    "type": "movie",
-    "scheduledDate": "2026-11-25",
-    "initialStatus": "unwatched",
-    "reason": "Cierra la Saga del Infinito y redefine el futuro del equipo."
-  },
-  {
-    "id": "loki-season-one",
-    "title": "Loki · Temporada 1",
-    "type": "series",
-    "scheduledDate": "2026-12-02",
-    "initialStatus": "unwatched",
-    "reason": "Introduce variantes y ramificaciones temporales relevantes para el MCU."
-  },
-  {
-    "id": "doctor-strange-multiverse-of-madness",
-    "title": "Doctor Strange en el multiverso de la locura",
-    "type": "movie",
-    "scheduledDate": "2026-12-09",
-    "initialStatus": "unwatched",
-    "reason": "Amplía las consecuencias del multiverso dentro de la historia principal."
-  },
-  {
-    "id": "fantastic-four-first-steps",
-    "title": "Los Cuatro Fantásticos: primeros pasos",
-    "type": "movie",
-    "scheduledDate": "2026-12-16",
-    "initialStatus": "unwatched",
-    "reason": "Presenta a la familia fantástica antes de la próxima reunión de héroes."
-  }
+  { "id": "iron-man", "title": "Iron Man", "type": "movie", "scheduledDate": "2026-04-04", "initialStatus": "watched", "reason": "Presenta a Tony Stark y el inicio del MCU." },
+  { "id": "the-incredible-hulk", "title": "The Incredible Hulk", "type": "movie", "scheduledDate": "2026-04-11", "initialStatus": "watched", "reason": "Introduce a Bruce Banner antes de los Vengadores." },
+  { "id": "iron-man-2", "title": "Iron Man 2", "type": "movie", "scheduledDate": "2026-04-18", "initialStatus": "watched", "reason": "Amplía el mundo de Stark y S.H.I.E.L.D." },
+  { "id": "thor", "title": "Thor", "type": "movie", "scheduledDate": "2026-04-25", "initialStatus": "watched", "reason": "Presenta a Thor, Asgard y el conflicto de Loki." },
+  { "id": "captain-america-the-first-avenger", "title": "Captain America: The First Avenger", "type": "movie", "scheduledDate": "2026-05-02", "initialStatus": "watched", "reason": "Explica el origen de Steve Rogers y su legado." },
+  { "id": "the-avengers", "title": "The Avengers", "type": "movie", "scheduledDate": "2026-05-09", "initialStatus": "watched", "reason": "Muestra la formación del equipo original." },
+  { "id": "iron-man-3", "title": "Iron Man 3", "type": "movie", "scheduledDate": "2026-05-16", "initialStatus": "watched", "reason": "Continúa las consecuencias personales de Nueva York." },
+  { "id": "thor-the-dark-world", "title": "Thor: The Dark World", "type": "movie", "scheduledDate": "2026-05-23", "initialStatus": "watched", "reason": "Introduce el Éter y una Gema del Infinito." },
+  { "id": "captain-america-the-winter-soldier", "title": "Captain America: The Winter Soldier", "type": "movie", "scheduledDate": "2026-05-30", "initialStatus": "watched", "reason": "Reconfigura a S.H.I.E.L.D. y al equipo." },
+  { "id": "guardians-of-the-galaxy", "title": "Guardians of the Galaxy", "type": "movie", "scheduledDate": "2026-06-06", "initialStatus": "watched", "reason": "Abre la escala cósmica del MCU." },
+  { "id": "avengers-age-of-ultron", "title": "Avengers: Age of Ultron", "type": "movie", "scheduledDate": "2026-08-22", "initialStatus": "watched", "reason": "Presenta a Wanda, Vision y las fracturas del equipo." },
+  { "id": "ant-man", "title": "Ant-Man", "type": "movie", "scheduledDate": "2026-08-23", "initialStatus": "watched", "reason": "Introduce la tecnología Pym y el Reino Cuántico." },
+  { "id": "captain-america-civil-war", "title": "Captain America: Civil War", "type": "movie", "scheduledDate": "2026-08-29", "initialStatus": "watched", "reason": "Divide a los Vengadores y presenta a Spider-Man." },
+  { "id": "doctor-strange", "title": "Doctor Strange", "type": "movie", "scheduledDate": "2026-09-05", "initialStatus": "watched", "reason": "Introduce la magia y otra Gema del Infinito." },
+  { "id": "guardians-of-the-galaxy-vol-2", "title": "Guardians of the Galaxy Vol. 2", "type": "movie", "scheduledDate": "2026-09-12", "initialStatus": "unwatched", "reason": "Profundiza en la familia elegida de los Guardianes." },
+  { "id": "spider-man-homecoming", "title": "Spider-Man: Homecoming", "type": "movie", "scheduledDate": "2026-09-13", "initialStatus": "unwatched", "reason": "Sigue el lugar de Peter Parker tras Civil War." },
+  { "id": "thor-ragnarok", "title": "Thor: Ragnarok", "type": "movie", "scheduledDate": "2026-09-19", "initialStatus": "unwatched", "reason": "Reúne a Thor, Hulk y la amenaza de Asgard." },
+  { "id": "black-panther", "title": "Black Panther", "type": "movie", "scheduledDate": "2026-09-20", "initialStatus": "unwatched", "reason": "Presenta Wakanda y a T'Challa como aliado central." },
+  { "id": "avengers-infinity-war", "title": "Avengers: Infinity War", "type": "movie", "scheduledDate": "2026-09-26", "initialStatus": "unwatched", "reason": "Inicia el conflicto decisivo contra Thanos." },
+  { "id": "x-men", "title": "X-Men", "type": "movie", "scheduledDate": "2026-09-27", "initialStatus": "unwatched", "reason": "Añade el contexto recomendado de los mutantes." },
+  { "id": "ant-man-and-the-wasp", "title": "Ant-Man and the Wasp", "type": "movie", "scheduledDate": "2026-10-03", "initialStatus": "unwatched", "reason": "Retoma el Reino Cuántico antes de Endgame." },
+  { "id": "captain-marvel", "title": "Captain Marvel", "type": "movie", "scheduledDate": "2026-10-04", "initialStatus": "unwatched", "reason": "Presenta a Carol Danvers y la escala cósmica." },
+  { "id": "avengers-endgame", "title": "Avengers: Endgame", "type": "movie", "scheduledDate": "2026-10-10", "initialStatus": "unwatched", "reason": "Cierra la Saga del Infinito y redefine al equipo." },
+  { "id": "x2", "title": "X2", "type": "movie", "scheduledDate": "2026-10-11", "initialStatus": "unwatched", "reason": "Amplía el contexto recomendado de los mutantes." },
+  { "id": "spider-man-far-from-home", "title": "Spider-Man: Far From Home", "type": "movie", "scheduledDate": "2026-10-17", "initialStatus": "unwatched", "reason": "Muestra las secuelas de Endgame para Peter Parker." },
+  { "id": "black-widow", "title": "Black Widow", "type": "movie", "scheduledDate": "2026-10-18", "initialStatus": "unwatched", "reason": "Completa la historia de Natasha Romanoff." },
+  { "id": "shang-chi-and-the-legend-of-the-ten-rings", "title": "Shang-Chi and the Legend of the Ten Rings", "type": "movie", "scheduledDate": "2026-10-24", "initialStatus": "unwatched", "reason": "Introduce los Diez Anillos y a Shang-Chi." },
+  { "id": "eternals", "title": "Eternals", "type": "movie", "scheduledDate": "2026-10-31", "initialStatus": "unwatched", "reason": "Amplía la mitología cósmica de la Tierra." },
+  { "id": "spider-man-no-way-home", "title": "Spider-Man: No Way Home", "type": "movie", "scheduledDate": "2026-11-01", "initialStatus": "unwatched", "reason": "Abre las consecuencias del multiverso para Spider-Man." },
+  { "id": "doctor-strange-in-the-multiverse-of-madness", "title": "Doctor Strange in the Multiverse of Madness", "type": "movie", "scheduledDate": "2026-11-07", "initialStatus": "unwatched", "reason": "Explora el multiverso y sus consecuencias." },
+  { "id": "thor-love-and-thunder", "title": "Thor: Love and Thunder", "type": "movie", "scheduledDate": "2026-11-14", "initialStatus": "unwatched", "reason": "Continúa el camino de Thor después de Endgame." },
+  { "id": "black-panther-wakanda-forever", "title": "Black Panther: Wakanda Forever", "type": "movie", "scheduledDate": "2026-11-15", "initialStatus": "unwatched", "reason": "Muestra el nuevo equilibrio de Wakanda." },
+  { "id": "ant-man-and-the-wasp-quantumania", "title": "Ant-Man and the Wasp: Quantumania", "type": "movie", "scheduledDate": "2026-11-21", "initialStatus": "unwatched", "reason": "Regresa al Reino Cuántico y presenta nuevas amenazas." },
+  { "id": "guardians-of-the-galaxy-vol-3", "title": "Guardians of the Galaxy Vol. 3", "type": "movie", "scheduledDate": "2026-11-22", "initialStatus": "unwatched", "reason": "Cierra la historia principal de los Guardianes." },
+  { "id": "the-marvels", "title": "The Marvels", "type": "movie", "scheduledDate": "2026-11-28", "initialStatus": "unwatched", "reason": "Conecta a Carol, Monica y Kamala en el espacio." },
+  { "id": "deadpool-and-wolverine", "title": "Deadpool & Wolverine", "type": "movie", "scheduledDate": "2026-11-29", "initialStatus": "unwatched", "reason": "Aporta contexto multiversal y mutante recomendado." },
+  { "id": "captain-america-brave-new-world", "title": "Captain America: Brave New World", "type": "movie", "scheduledDate": "2026-12-05", "initialStatus": "unwatched", "reason": "Presenta la nueva etapa de Captain America." },
+  { "id": "thunderbolts", "title": "Thunderbolts*", "type": "movie", "scheduledDate": "2026-12-06", "initialStatus": "unwatched", "reason": "Reúne a un nuevo equipo de antihéroes." },
+  { "id": "the-fantastic-four-first-steps", "title": "The Fantastic Four: First Steps", "type": "movie", "scheduledDate": "2026-12-12", "initialStatus": "unwatched", "reason": "Presenta a la familia fantástica antes del estreno objetivo." },
+  { "id": "spider-man-brand-new-day", "title": "Spider-Man: Brand New Day", "type": "movie", "scheduledDate": "2026-12-13", "initialStatus": "unwatched", "reason": "Completa la ruta de Spider-Man antes de Doomsday." }
 ]
