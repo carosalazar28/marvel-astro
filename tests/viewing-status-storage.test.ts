@@ -1,6 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
-  clearViewingStatuses,
   readViewingStatuses,
   VIEWING_STATUS_STORAGE_KEY,
   writeViewingStatuses,
@@ -29,7 +28,6 @@ describe('viewing status storage', () => {
   it.each([null, undefined])('returns an empty state when storage is unavailable: %s', (storage) => {
     expect(readViewingStatuses(storage, knownIds)).toEqual({});
     expect(writeViewingStatuses(storage, { 'black-panther': 'watching' })).toBe(false);
-    expect(clearViewingStatuses(storage)).toBe(false);
   });
 
   it.each(['not-json', '[]', 'null', '"watching"'])(
@@ -68,15 +66,4 @@ describe('viewing status storage', () => {
     expect(writeViewingStatuses(storage, { 'black-panther': 'watched' })).toBe(false);
   });
 
-  it('removes saved statuses and reports reset errors without throwing', () => {
-    const storage = { getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn() };
-
-    expect(clearViewingStatuses(storage)).toBe(true);
-    expect(storage.removeItem).toHaveBeenCalledWith(VIEWING_STATUS_STORAGE_KEY);
-
-    storage.removeItem.mockImplementationOnce(() => {
-      throw new Error('blocked');
-    });
-    expect(clearViewingStatuses(storage)).toBe(false);
-  });
 });

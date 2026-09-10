@@ -70,8 +70,3 @@ export function advanceViewingStatus(
     [contentId]: STATUS_TRANSITIONS[currentStatus],
   };
 }
-
-/** Reinicia el plan completo sin mutar el objeto de progreso anterior. */
-export function resetViewingStatuses(_: ViewingStatuses): ViewingStatuses {
-  return createEmptyViewingStatuses();
-}

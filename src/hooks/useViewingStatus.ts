@@ -4,12 +4,10 @@ import {
   createEmptyViewingStatuses,
   createUnseenViewingStatuses,
   getViewingStatus,
-  resetViewingStatuses,
   type ViewingStatus,
   type ViewingStatuses,
 } from '../utils/progress/viewing-status';
 import {
-  clearViewingStatuses,
   readViewingStatuses,
   writeViewingStatuses,
   type StorageLike,
@@ -20,7 +18,6 @@ export interface ViewingStatusController {
   readonly isHydrated: boolean;
   getStatus(contentId: unknown): ViewingStatus;
   advance(contentId: unknown): void;
-  reset(): void;
   resetCalendar(): void;
 }
 
@@ -61,11 +58,6 @@ export function useViewingStatus(
     [storage],
   );
 
-  const reset = useCallback(() => {
-    setStatuses((currentStatuses) => resetViewingStatuses(currentStatuses));
-    clearViewingStatuses(storage);
-  }, [storage]);
-
   const resetCalendar = useCallback(() => {
     const nextStatuses = createUnseenViewingStatuses(knownContentIds);
 
@@ -78,7 +70,7 @@ export function useViewingStatus(
     [statuses],
   );
 
-  return { statuses, isHydrated, getStatus, advance, reset, resetCalendar };
+  return { statuses, isHydrated, getStatus, advance, resetCalendar };
 }
 
 function getBrowserStorage(): StorageLike | null {

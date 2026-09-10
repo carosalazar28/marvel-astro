@@ -29,7 +29,7 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
   const [sort, setSort] = useState<PreparationSort>('scheduled-date');
   const [activeView, setActiveView] = useState<'route' | 'calendar'>('route');
   const knownContentIds = useMemo(() => items.map((item) => item.id), [items]);
-  const { statuses, isHydrated, advance, reset, resetCalendar } = useViewingStatus(knownContentIds);
+  const { statuses, isHydrated, advance, resetCalendar } = useViewingStatus(knownContentIds);
   const editorialStatuses = useMemo(() => {
     const nextStatuses: Record<string, ViewingStatus> = {};
 
@@ -86,7 +86,6 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
             <option value="title">Título</option>
           </select>
         </label>
-        <button type="button" onClick={reset} disabled={!isHydrated}>Reiniciar progreso local</button>
         <button type="button" onClick={resetCalendar} disabled={!isHydrated}>Reiniciar calendario completo</button>
       </div>
 

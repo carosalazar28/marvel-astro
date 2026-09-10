@@ -21,7 +21,7 @@ function createStorage(initialValue: string | null = null): StorageLike {
 }
 
 describe('useViewingStatus', () => {
-  it('hydrates valid saved progress, advances it and resets its local state', async () => {
+  it('hydrates valid saved progress, advances it and reinicia todo el calendario', async () => {
     const storage = createStorage(JSON.stringify({ 'black-panther': 'watching' }));
     const { result } = renderHook(() => useViewingStatus(knownIds, { storage }));
 
@@ -35,9 +35,12 @@ describe('useViewingStatus', () => {
       JSON.stringify({ 'black-panther': 'watched' }),
     );
 
-    act(() => result.current.reset());
-    expect(result.current.statuses).toEqual({});
-    expect(storage.removeItem).toHaveBeenCalledWith(VIEWING_STATUS_STORAGE_KEY);
+    act(() => result.current.resetCalendar());
+    expect(result.current.statuses).toEqual({ 'black-panther': 'unseen' });
+    expect(storage.setItem).toHaveBeenLastCalledWith(
+      VIEWING_STATUS_STORAGE_KEY,
+      JSON.stringify({ 'black-panther': 'unseen' }),
+    );
   });
 
   it('keeps an empty usable state when browser storage is absent', async () => {
@@ -76,9 +79,9 @@ describe('useViewingStatus', () => {
 
     await waitFor(() => expect(result.current.isHydrated).toBe(true));
     act(() => result.current.advance('black-panther'));
-    act(() => result.current.reset());
+    act(() => result.current.resetCalendar());
 
-    expect(result.current.statuses).toEqual({});
+    expect(result.current.statuses).toEqual({ 'black-panther': 'unseen' });
   });
 
   it('uses browser storage only after checking that it is available', async () => {
