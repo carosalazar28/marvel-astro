@@ -1,6 +1,14 @@
 import { formatScheduledDate, type PreparationRouteItem } from '../utils/preparation-route';
 import type { ViewingStatus } from '../utils/progress/viewing-status';
 import artworkSheet from '../assets/preparation-artwork-v1.jpg';
+import ironManArtwork from '../assets/preparation/iron-man.jpg';
+import incredibleHulkArtwork from '../assets/preparation/the-incredible-hulk.jpg';
+import ironManTwoArtwork from '../assets/preparation/iron-man-2.jpg';
+import thorArtwork from '../assets/preparation/thor.jpg';
+import captainAmericaArtwork from '../assets/preparation/captain-america-the-first-avenger.jpg';
+import avengersArtwork from '../assets/preparation/the-avengers.jpg';
+import ironManThreeArtwork from '../assets/preparation/iron-man-3.jpg';
+import thorDarkWorldArtwork from '../assets/preparation/thor-the-dark-world.jpg';
 import '../styles/preparation-route.css';
 
 interface PreparationRouteProps {
@@ -34,6 +42,19 @@ const artworkPosition: Readonly<Record<string, string>> = {
   'fantastic-four-first-steps': '100% 100%',
 };
 
+type ArtworkAsset = string | { readonly src: string };
+
+const individualArtwork: Readonly<Record<string, ArtworkAsset>> = {
+  'iron-man': ironManArtwork,
+  'the-incredible-hulk': incredibleHulkArtwork,
+  'iron-man-2': ironManTwoArtwork,
+  thor: thorArtwork,
+  'captain-america-the-first-avenger': captainAmericaArtwork,
+  'the-avengers': avengersArtwork,
+  'iron-man-3': ironManThreeArtwork,
+  'thor-the-dark-world': thorDarkWorldArtwork,
+};
+
 /** Returns the stable focus target used to navigate from the monthly calendar. */
 export function getPreparationCardId(contentId: string): string {
   return `preparation-card-${contentId}`;
@@ -42,6 +63,25 @@ export function getPreparationCardId(contentId: string): string {
 /** Normalizes Vite's test string and Astro's processed-image metadata. */
 export function resolveAssetUrl(asset: string | { readonly src: string }): string {
   return typeof asset === 'string' ? asset : asset.src;
+}
+
+/** Uses individual generated art when available and preserves the legacy sheet as a safe fallback. */
+export function getArtworkStyle(contentId: string): { readonly backgroundImage: string; readonly backgroundPosition: string; readonly backgroundSize: string } {
+  const artwork = individualArtwork[contentId];
+
+  if (artwork) {
+    return {
+      backgroundImage: `url(${resolveAssetUrl(artwork)})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+    };
+  }
+
+  return {
+    backgroundImage: `url(${resolveAssetUrl(artworkSheet)})`,
+    backgroundPosition: artworkPosition[contentId] ?? '0% 0%',
+    backgroundSize: '400% 200%',
+  };
 }
 
 function getNextActionLabel(status: ViewingStatus): string {
@@ -61,7 +101,7 @@ interface PreparationCardProps {
 }
 
 function PreparationCard({ item, status, isInteractive, isHydrated, onAdvance }: PreparationCardProps) {
-  const artworkStyle = { backgroundImage: `url(${resolveAssetUrl(artworkSheet)})`, backgroundPosition: artworkPosition[item.id] ?? '0% 0%' };
+  const artworkStyle = getArtworkStyle(item.id);
 
   return (
     <article className="preparation-card" id={getPreparationCardId(item.id)} tabIndex={-1}>

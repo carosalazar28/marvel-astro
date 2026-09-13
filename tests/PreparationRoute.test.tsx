@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import PreparationRoute, { resolveAssetUrl } from '../src/components/PreparationRoute';
+import PreparationRoute, { getArtworkStyle, resolveAssetUrl } from '../src/components/PreparationRoute';
 import type { PreparationRouteItem } from '../src/utils/preparation-route';
 
 const items: PreparationRouteItem[] = [
@@ -31,6 +31,13 @@ describe('PreparationRoute', () => {
     expect(resolveAssetUrl('/assets/preparation-artwork-v1.jpg')).toBe('/assets/preparation-artwork-v1.jpg');
   });
 
+  it('elige un arte individual cuando existe y conserva la lámina como fallback', () => {
+    expect(getArtworkStyle('iron-man').backgroundImage).toContain('iron-man');
+    expect(getArtworkStyle('iron-man').backgroundSize).toBe('cover');
+    expect(getArtworkStyle('loki').backgroundImage).toContain('preparation-artwork-v1');
+    expect(getArtworkStyle('loki').backgroundSize).toBe('400% 200%');
+  });
+
   it('muestra los metadatos, razón y alerta de retraso de cada contenido', () => {
     render(<PreparationRoute items={items} issues={[]} />);
 
@@ -44,6 +51,7 @@ describe('PreparationRoute', () => {
     const artworks = document.querySelectorAll<HTMLElement>('.preparation-card__artwork');
     expect(artworks).toHaveLength(2);
     expect(artworks[0].style.backgroundImage).toContain('preparation-artwork-v1');
+    expect(artworks[1].style.backgroundImage).toContain('iron-man');
   });
 
   it('explica una ruta vacía y avisos de validación sin ocultar contenido válido', () => {
