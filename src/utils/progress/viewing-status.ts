@@ -8,7 +8,7 @@ const INITIAL_VIEWING_STATUS: ViewingStatus = 'unseen';
 const STATUS_TRANSITIONS: Readonly<Record<ViewingStatus, ViewingStatus>> = {
   unseen: 'watching',
   watching: 'watched',
-  watched: 'watched',
+  watched: 'unseen',
 };
 
 /** Crea el estado seguro que se usa cuando todavía no existe progreso recuperable. */
@@ -52,8 +52,8 @@ export function getViewingStatus(statuses: ViewingStatuses, contentId: unknown):
 }
 
 /**
- * Avanza una sola vez el progreso de un ítem. `watched` es terminal para que
- * un toque repetido no revierta una película ya completada por accidente.
+ * Avanza el progreso de un ítem en un ciclo para que la persona pueda corregir
+ * una marca accidental de contenido visto sin reiniciar todo el calendario.
  */
 export function advanceViewingStatus(
   statuses: ViewingStatuses,
