@@ -4,7 +4,7 @@
 
 **Precondición:** existe un ítem visible con `id` estable.
 
-**Flujo principal:** avanza un ítem de `Sin ver` a `Viendo` y luego a `Vista`; la interfaz actualiza el estado de la tarjeta y el `id` con su estado se guarda localmente. Una nueva acción sobre `Vista` lo conserva completado para evitar retrocesos accidentales.
+**Flujo principal:** avanza un ítem de `Sin ver` a `Viendo` y luego a `Vista`; la interfaz actualiza el estado de la tarjeta y el `id` con su estado se guarda localmente. Una nueva acción sobre `Vista` lo devuelve a `Sin ver`, de modo que puede corregir una marca accidental sin reiniciar todo el calendario.
 
 **Resultado:** el progreso permanece disponible al recargar en el mismo navegador. El tracker ofrece una única acción, **Reiniciar calendario completo**, que guarda localmente todos los ítems como `Sin ver`, incluso los que el JSON marca inicialmente como `Vista`. No edita, elimina u oculta la ruta editorial.
 

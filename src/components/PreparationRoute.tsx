@@ -44,7 +44,7 @@ function getNextActionLabel(status: ViewingStatus): string {
     return 'Marcar como viendo';
   }
 
-  return status === 'watching' ? 'Marcar como vista' : 'Vista';
+  return status === 'watching' ? 'Marcar como vista' : 'Marcar como sin ver';
 }
 
 interface PreparationCardProps {
@@ -77,7 +77,7 @@ function PreparationCard({ item, status, isInteractive, isHydrated, onAdvance }:
           className="preparation-card__status-action"
           type="button"
           onClick={() => onAdvance?.(item.id)}
-          disabled={!isHydrated || status === 'watched'}
+          disabled={!isHydrated}
           aria-label={`Cambiar estado de ${item.title}: ${statusLabel[status]}`}
         >
           {getNextActionLabel(status)}

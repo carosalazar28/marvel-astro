@@ -9,19 +9,15 @@ import {
 } from '../src/utils/progress/viewing-status';
 
 describe('viewing status domain', () => {
-  it('advances an item from unseen through watching to watched', () => {
+  it('avanza un ítem en un ciclo de sin ver a viendo, vista y sin ver', () => {
     const watching = advanceViewingStatus({}, 'black-panther');
     const watched = advanceViewingStatus(watching, 'black-panther');
+    const unseen = advanceViewingStatus(watched, 'black-panther');
 
     expect(getViewingStatus({}, 'black-panther')).toBe('unseen');
     expect(watching).toEqual({ 'black-panther': 'watching' });
     expect(watched).toEqual({ 'black-panther': 'watched' });
-  });
-
-  it('keeps a watched item watched when the advance action is repeated', () => {
-    expect(advanceViewingStatus({ 'black-panther': 'watched' }, 'black-panther')).toEqual({
-      'black-panther': 'watched',
-    });
+    expect(unseen).toEqual({ 'black-panther': 'unseen' });
   });
 
   it('does not change progress for an invalid content id', () => {

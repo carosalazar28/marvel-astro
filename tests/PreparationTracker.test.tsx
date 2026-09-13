@@ -45,7 +45,7 @@ describe('PreparationTracker', () => {
     await waitFor(() => expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Viendo' }).disabled).toBe(false));
 
     await user.click(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Viendo' }));
-    expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Vista' }).disabled).toBe(true);
+    expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Vista' }).disabled).toBe(false);
     expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy();
 
     await user.click(screen.getByRole('button', { name: 'Cambiar estado de Loki: Sin ver' }));
@@ -53,7 +53,11 @@ describe('PreparationTracker', () => {
 
     await user.click(screen.getByRole('button', { name: 'Cambiar estado de Loki: Viendo' }));
     expect(screen.getByRole('status').textContent).toContain('¡Estás lista para el estreno!');
-    expect(screen.getByRole('button', { name: 'Cambiar estado de Loki: Vista' }).disabled).toBe(true);
+    expect(screen.getByRole('button', { name: 'Cambiar estado de Loki: Vista' }).disabled).toBe(false);
+
+    await user.click(screen.getByRole('button', { name: 'Cambiar estado de Loki: Vista' }));
+    expect(screen.getByRole('button', { name: 'Cambiar estado de Loki: Sin ver' })).toBeTruthy();
+    expect(screen.getByText('1 completada · 1 pendientes')).toBeTruthy();
 
     await user.selectOptions(screen.getByLabelText('Filtrar ruta'), 'series');
     expect(screen.getByText('1 de 2 contenidos visibles')).toBeTruthy();
