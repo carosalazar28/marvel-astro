@@ -111,6 +111,28 @@ describe('PreparationTracker', () => {
     await waitFor(() => expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Sin ver' })).toBeTruthy());
   });
 
+  it('lleva desde el calendario a la tarjeta elegida, aunque un filtro la oculte', async () => {
+    const user = userEvent.setup();
+    const today = new Date().toISOString().slice(0, 10);
+    const calendarItems: PreparationRouteItem[] = [
+      { ...items[0], scheduledDate: today },
+      items[1],
+    ];
+    render(<PreparationTracker items={calendarItems} issues={[]} />);
+
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Reiniciar calendario completo' }).disabled).toBe(false));
+    await user.selectOptions(screen.getByLabelText('Filtrar ruta'), 'series');
+    expect(screen.queryByText('Iron Man')).toBeNull();
+
+    await user.click(screen.getByRole('button', { name: 'Calendario' }));
+    await user.click(screen.getByRole('button', { name: 'Ir a la tarjeta de Iron Man' }));
+
+    expect(screen.getByRole('button', { name: 'Películas' }).getAttribute('aria-pressed')).toBe('true');
+    expect(screen.getByText('2 de 2 contenidos visibles')).toBeTruthy();
+    await waitFor(() => expect(document.activeElement?.id).toBe('preparation-card-iron-man'));
+    expect(screen.getByRole('button', { name: 'Cambiar estado de Iron Man: Sin ver' })).toBeTruthy();
+  });
+
   it('mantiene una explicación específica cuando la ruta editorial está vacía', () => {
     render(<PreparationTracker items={[]} issues={[]} />);
 

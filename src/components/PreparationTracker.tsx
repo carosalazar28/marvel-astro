@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useViewingStatus } from '../hooks/useViewingStatus';
 import type { PreparationRouteItem } from '../utils/preparation-route';
 import { getViewingStatus, type ViewingStatus } from '../utils/progress/viewing-status';
@@ -9,7 +9,7 @@ import {
   type PreparationFilter,
   type PreparationSort,
 } from '../utils/preparation-tracker';
-import PreparationRoute from './PreparationRoute';
+import PreparationRoute, { getPreparationCardId } from './PreparationRoute';
 import ReadinessSummary from './ReadinessSummary';
 import MonthlyCalendar from './MonthlyCalendar';
 import '../styles/preparation-tracker.css';
@@ -28,6 +28,7 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
   const [filter, setFilter] = useState<PreparationFilter>('all');
   const [sort, setSort] = useState<PreparationSort>('scheduled-date');
   const [activeView, setActiveView] = useState<'route' | 'calendar'>('route');
+  const [selectedCalendarItemId, setSelectedCalendarItemId] = useState<string | null>(null);
   const knownContentIds = useMemo(() => items.map((item) => item.id), [items]);
   const { statuses, isHydrated, advance, resetCalendar } = useViewingStatus(knownContentIds);
   const editorialStatuses = useMemo(() => {
@@ -57,6 +58,22 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
     () => items.map((item) => ({ id: item.id, status: getEffectiveStatus(item.id) })),
     [getEffectiveStatus, items],
   );
+  const showPreparationCard = useCallback((contentId: string): void => {
+    setFilter('all');
+    setActiveView('route');
+    setSelectedCalendarItemId(contentId);
+  }, []);
+
+  useEffect(() => {
+    if (!selectedCalendarItemId) {
+      return;
+    }
+
+    const card = document.getElementById(getPreparationCardId(selectedCalendarItemId));
+    card?.focus();
+    card?.scrollIntoView?.({ block: 'center' });
+    setSelectedCalendarItemId(null);
+  }, [selectedCalendarItemId, visibleItems]);
 
   return (
     <section className="preparation-tracker" aria-label="Tracker de preparación">
@@ -102,7 +119,7 @@ export default function PreparationTracker({ items, issues }: PreparationTracker
       />
       </div>
       <div className="preparation-tracker__calendar">
-      <MonthlyCalendar items={items} getStatus={getEffectiveStatus} />
+      <MonthlyCalendar items={items} getStatus={getEffectiveStatus} onSelectItem={showPreparationCard} />
       </div>
       </div>
     </section>

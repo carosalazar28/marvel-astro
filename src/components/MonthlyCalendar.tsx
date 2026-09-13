@@ -14,6 +14,7 @@ import '../styles/monthly-calendar.css';
 interface MonthlyCalendarProps {
   readonly items: readonly PreparationRouteItem[];
   readonly getStatus: (contentId: string) => ViewingStatus;
+  readonly onSelectItem?: (contentId: string) => void;
   readonly today?: Date;
 }
 
@@ -25,7 +26,7 @@ const statusLabels: Readonly<Record<ViewingStatus, string>> = {
 };
 
 /** Shows the route in a navigable monthly grid while keeping progress owned by its parent. */
-export default function MonthlyCalendar({ items, getStatus, today = new Date() }: MonthlyCalendarProps) {
+export default function MonthlyCalendar({ items, getStatus, onSelectItem, today = new Date() }: MonthlyCalendarProps) {
   const initialMonth = useMemo(() => new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1)), [today]);
   const [month, setMonth] = useState(initialMonth);
   const [selectedDate, setSelectedDate] = useState(toIsoDate(today));
@@ -77,7 +78,20 @@ export default function MonthlyCalendar({ items, getStatus, today = new Date() }
       <div className="monthly-calendar__details" aria-live="polite">
         <h3>Contenido del {formatCalendarDay(selectedDate)}</h3>
         {selectedItems.length === 0 ? <p>No hay contenido programado para este día.</p> : (
-          <ul>{selectedItems.map((item) => <li key={item.id}>{item.title} · {statusLabels[getStatus(item.id)]}</li>)}</ul>
+          <ul>{selectedItems.map((item) => (
+            <li key={item.id}>
+              {onSelectItem ? (
+                <button
+                  className="monthly-calendar__item-link"
+                  type="button"
+                  aria-label={`Ir a la tarjeta de ${item.title}`}
+                  onClick={() => onSelectItem(item.id)}
+                >
+                  {item.title} · {statusLabels[getStatus(item.id)]}
+                </button>
+              ) : `${item.title} · ${statusLabels[getStatus(item.id)]}`}
+            </li>
+          ))}</ul>
         )}
       </div>
       <aside className="monthly-calendar__upcoming" aria-label="Próximas visualizaciones">
