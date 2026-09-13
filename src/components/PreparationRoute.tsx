@@ -34,6 +34,11 @@ const artworkPosition: Readonly<Record<string, string>> = {
   'fantastic-four-first-steps': '100% 100%',
 };
 
+/** Returns the stable focus target used to navigate from the monthly calendar. */
+export function getPreparationCardId(contentId: string): string {
+  return `preparation-card-${contentId}`;
+}
+
 /** Normalizes Vite's test string and Astro's processed-image metadata. */
 export function resolveAssetUrl(asset: string | { readonly src: string }): string {
   return typeof asset === 'string' ? asset : asset.src;
@@ -59,7 +64,7 @@ function PreparationCard({ item, status, isInteractive, isHydrated, onAdvance }:
   const artworkStyle = { backgroundImage: `url(${resolveAssetUrl(artworkSheet)})`, backgroundPosition: artworkPosition[item.id] ?? '0% 0%' };
 
   return (
-    <article className="preparation-card">
+    <article className="preparation-card" id={getPreparationCardId(item.id)} tabIndex={-1}>
       <div className="preparation-card__artwork" aria-hidden="true" style={artworkStyle} />
       <div className="preparation-card__content">
       <div className="preparation-card__meta">

@@ -14,5 +14,7 @@
 .monthly-calendar__details, .monthly-calendar__upcoming { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color, #292d48); }
 .monthly-calendar__details p, .monthly-calendar__upcoming p, .monthly-calendar li { color: var(--text-secondary); line-height: 1.5; }
 .monthly-calendar__details ul, .monthly-calendar__upcoming ol { margin: 0.75rem 0 0; padding-left: 1.25rem; }
-.monthly-calendar__navigation button:focus-visible, .monthly-calendar__day:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+.monthly-calendar__item-link { display: block; width: 100%; min-height: 2.75rem; padding: 0.5rem; border: 0; border-radius: 0.375rem; color: var(--text-primary); background: transparent; font: inherit; text-align: left; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.monthly-calendar__item-link:hover { background: var(--elevated-surface-color, #1a1f3a); }
+.monthly-calendar__navigation button:focus-visible, .monthly-calendar__day:focus-visible, .monthly-calendar__item-link:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
 @media (max-width: 30rem) { .monthly-calendar { padding: 1rem; } .monthly-calendar__day { min-height: 3.75rem; font-size: 0.8rem; } .monthly-calendar__content-count { font-size: 0.6rem; } }
